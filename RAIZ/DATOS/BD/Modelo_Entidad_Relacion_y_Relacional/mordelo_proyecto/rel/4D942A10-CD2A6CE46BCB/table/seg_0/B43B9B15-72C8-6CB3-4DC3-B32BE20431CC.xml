@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B43B9B15-72C8-6CB3-4DC3-B32BE20431CC" name="jornada">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>360526A2-9925-1792-A661-C2B355FF728A</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codJornada" id="A62EDA07-FF40-9FA2-F88F-02952EEDB112">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>47390B01-7138-C292-62D1-F53A2AF941E0</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fechaJornadaI" id="FC70928B-7087-3A35-0973-0FB645EE7E6E">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>EBC0B3CD-9F64-8936-BB02-C72391C50C4B</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>810C4A7D-92EA-21C7-279C-C5BA9EE10733</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fechaJornadaF" id="74E03FC7-4170-B96D-504F-0768AA9156E5">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>AF87A013-0CDA-5F30-0477-9DE6737F0A51</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>810C4A7D-92EA-21C7-279C-C5BA9EE10733</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A45AE3AB-30FB-882E-E5E3-ADA943696367" name="jornada_PK">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>BB118B30-67B4-A80D-8477-ED0F1894B450</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A62EDA07-FF40-9FA2-F88F-02952EEDB112"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

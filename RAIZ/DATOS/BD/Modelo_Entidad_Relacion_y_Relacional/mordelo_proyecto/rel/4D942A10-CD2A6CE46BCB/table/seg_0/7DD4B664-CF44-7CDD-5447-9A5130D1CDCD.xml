@@ -1,0 +1,197 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7DD4B664-CF44-7CDD-5447-9A5130D1CDCD" name="partido">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>ACACB0AE-77C8-5636-2245-5C238D1828EE</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codPartido" id="DFD512BE-BC85-B59E-EC7C-4FA5CA443ED8">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>64862C61-966B-09B2-F7D8-803EC0D9B8CC</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha" id="EC8D2F93-ADA8-543F-897C-AF39B53F5FF4">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>55B3164A-8DE6-B017-340A-44D6309FDCB8</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>810C4A7D-92EA-21C7-279C-C5BA9EE10733</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="hora" id="DC74BA82-5EA5-1F8C-6A23-6F0200013992">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>9C769273-8390-36E9-FC1A-EDD7B88FDE3F</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>08D710CE-C4F9-F027-C7BB-546B9613E00A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="jugado" id="6134B0A9-D04B-C02A-9A52-0C460F2ABD87">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>039F6B1F-62C7-7FAC-28E7-DEE58FA4115C</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>2B703BD6-D6DE-4CAF-6265-03CA179B3E90</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="jornada_codJornada" id="5A5B2468-DECE-A486-B0CB-98D5F4F0A2D3">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>BA105A57-658A-3A56-170A-F3A5D65C6195</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F47B307B-29C0-5AEA-D0AF-5B98AD7CD99F" referredColumn="A62EDA07-FF40-9FA2-F88F-02952EEDB112"/>
+</associations>
+</Column>
+<Column name="equipo_codEquipo" id="CDF404D2-52AD-A23C-E344-E265A4760E36">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>5E349A16-8C17-6DAD-5B3A-6D2A94A154CE</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D757104E-A66F-1C72-B52A-AEF9FECB3304" referredColumn="DC1F0551-A343-2048-19B5-0339C559DD00"/>
+</associations>
+</Column>
+<Column name="equipo_codEquipo1" id="EF82E5A8-41C0-F79E-C80E-164C2850BC64">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>D9BEF263-A8E6-D33A-C826-30967F4FB5BE</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F45FEF7C-7276-FF25-C219-A8530479A430" referredColumn="DC1F0551-A343-2048-19B5-0339C559DD00"/>
+</associations>
+</Column>
+<Column name="resultadoE1" id="07B8EDB9-9BB9-14DC-0C6D-4CAB5D7D5017">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>AA5459A5-2A17-F254-0113-FC374B8396BD</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="resultadoE2" id="36EB6F2B-E2EE-8DEC-38DE-16513D77C0FB">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>1C73CF4E-FF6A-522C-E007-935B993225FE</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3522FFDC-6B19-02BA-F598-6C44B3A8ADFF" name="partido_PK">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>F96C05BA-4DC0-6B53-F24A-675E6FB60139</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DFD512BE-BC85-B59E-EC7C-4FA5CA443ED8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9D1E51A7-6AE4-113C-DA6B-ACEE24D1E78D" name="partido__IDX">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>3DD32FD9-49C2-F6EB-5FCA-DF881F3CC408</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="CDF404D2-52AD-A23C-E344-E265A4760E36"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AC35E581-990E-3DEF-4A86-457598EA8A47" name="partido__IDXv1">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>3E2F78EA-BE35-98AF-2121-B600AE8987B7</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="EF82E5A8-41C0-F79E-C80E-164C2850BC64"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D1DB9BB6-37EE-DB6F-F9D5-921E586AC398" name="partido_equipo_FK">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>3DD32FD9-49C2-F6EB-5FCA-DF881F3CC408</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CDF404D2-52AD-A23C-E344-E265A4760E36"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7DDD6F32-EBFA-4647-C63C-D0D9EF82BFEE" name="partido_equipo_FKv1">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>3E2F78EA-BE35-98AF-2121-B600AE8987B7</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EF82E5A8-41C0-F79E-C80E-164C2850BC64"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EFBEC8D9-B653-CE16-6C6E-8F8A67470B27" name="partido_jornada_FK">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>A5FC4465-71C8-9B78-C18D-5CE421E2D4ED</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5A5B2468-DECE-A486-B0CB-98D5F4F0A2D3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

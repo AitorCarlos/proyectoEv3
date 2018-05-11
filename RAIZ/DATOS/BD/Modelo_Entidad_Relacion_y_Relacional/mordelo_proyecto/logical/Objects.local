@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.logical.LogicalDesign>
+   <object objectType="Entity" objectID="88943E99-793A-70D6-FB9B-BA514E7F20DC" name="duenno" seqName="seg_0"/>
+   <object objectType="Entity" objectID="B8ACD3F3-3227-B213-3BF1-3C614C389806" name="equipo" seqName="seg_0"/>
+   <object objectType="Entity" objectID="360526A2-9925-1792-A661-C2B355FF728A" name="jornada" seqName="seg_0"/>
+   <object objectType="Entity" objectID="292EC612-25B4-207E-791E-59F9FB40074B" name="jugador" seqName="seg_0"/>
+   <object objectType="Entity" objectID="ACACB0AE-77C8-5636-2245-5C238D1828EE" name="partido" seqName="seg_0"/>
+   <object objectType="Entity" objectID="35AA0815-2744-349E-8FF5-51A88727E308" name="usuarios" seqName="seg_0"/>
+   <object objectType="Relation" objectID="D9BA9CEA-03C9-ABC7-72A6-26CDD0F148D2" name="Relation_6" seqName="seg_0"/>
+   <object objectType="Relation" objectID="3DD32FD9-49C2-F6EB-5FCA-DF881F3CC408" name="Relation_9" seqName="seg_0"/>
+   <object objectType="Relation" objectID="0336C66E-3A42-1D4B-96CE-EEF5BB66D289" name="forman" seqName="seg_0"/>
+   <object objectType="Relation" objectID="3E2F78EA-BE35-98AF-2121-B600AE8987B7" name="juegaPartido" seqName="seg_0"/>
+   <object objectType="Relation" objectID="A5FC4465-71C8-9B78-C18D-5CE421E2D4ED" name="seCompone" seqName="seg_0"/>
+   <object objectType="Relation" objectID="5A0F5441-BD40-DFB7-89C6-FC2B713BE2E7" name="tiene" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.logical.LogicalDesign>

@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="141DFDD8-3FBD-3A48-E4E8-605A6106A4EB" name="jugador">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>292EC612-25B4-207E-791E-59F9FB40074B</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codJugador" id="2C00B4BF-654D-8369-BFD5-AE338333B6A8">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>AD5CBAF4-1B86-FF42-7E78-52E6C976303E</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="BC67849B-F923-A7D1-3D85-DDD7309AB4A6">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>CE765D3D-9299-7CAD-A84E-4DC8C375DE68</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>2B703BD6-D6DE-4CAF-6265-03CA179B3E90</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="apellido" id="C42BBD17-AC3C-0814-114C-2D19C0B5F4E2">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>2D8B5248-A0C0-19CC-D881-E633AF0A79F2</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>569469CB-97FA-CBC2-62A4-9B1320B89756</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nickname" id="6E606F41-50C4-8539-1DF1-E766F6413D0C">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>A94DA23C-22EA-8D37-0D05-991726F930BD</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>2B703BD6-D6DE-4CAF-6265-03CA179B3E90</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sueldo" id="6DF2B95C-C5B2-9478-DC51-0496F0BE42F8">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>A544D3A2-15EB-F124-EF42-BF605ED80F8C</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="equipo_codEquipo" id="00E77FE4-BE5C-1735-2B4D-B8C6F6121C67">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>23A8B4C9-A58E-75AD-EC01-F5D79EFCBFAE</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="575C7E6C-BF0A-311D-666A-0216C4E6354C" referredColumn="DC1F0551-A343-2048-19B5-0339C559DD00"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BFED0643-92F2-42CF-F65C-A5259770CE4A" name="jugador_PK">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>47D6B592-277F-B5B8-3C7F-72A08ACE80AD</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2C00B4BF-654D-8369-BFD5-AE338333B6A8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C27D3C04-5D2D-B4C0-ADA1-64A45379C5F5" name="jugador_equipo_FK">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>0336C66E-3A42-1D4B-96CE-EEF5BB66D289</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="00E77FE4-BE5C-1735-2B4D-B8C6F6121C67"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

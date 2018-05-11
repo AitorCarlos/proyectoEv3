@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="juegaPartido" directorySegmentName="seg_0" id="3E2F78EA-BE35-98AF-2121-B600AE8987B7">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-20 01:02:19 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="C3B0615C-CB11-9E20-BB6C-F107865F1BDC" value="true"/>
+</engineerTo>
+<sourcePk>25FA7692-A3F8-323D-9B2A-F95D8499B113</sourcePk>
+<targetPk>F96C05BA-4DC0-6B53-F24A-675E6FB60139</targetPk>
+<dominantRole>B8ACD3F3-3227-B213-3BF1-3C614C389806</dominantRole>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>B8ACD3F3-3227-B213-3BF1-3C614C389806</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>ACACB0AE-77C8-5636-2245-5C238D1828EE</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>
