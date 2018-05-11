@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="mordelo_proyecto" id="B4FCC100-E87B-FB94-5DE6-D2301BA09C84" version="3.5">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-20 01:01:09 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>modelo_relacional_y_entidad_relacion</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>B4FCC100-E87B-FB94-5DE6-D2301BA09C84</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="53609D7B-88B4-2297-C75A-85B6ED70176D">
+<designStoragePath>F:\script_sql</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

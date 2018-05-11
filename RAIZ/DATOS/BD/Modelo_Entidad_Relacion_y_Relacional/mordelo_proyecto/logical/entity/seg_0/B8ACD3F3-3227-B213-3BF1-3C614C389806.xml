@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="B8ACD3F3-3227-B213-3BF1-3C614C389806" name="equipo">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-20 01:02:07 UTC</createdTime>
+<generatorID>114EB643-3753-5884-7C40-7105CEDBD658</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="BB993719-29F7-1536-5C2B-D0ACE89CC0FD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="codEquipo" id="70E00E01-F2C5-0CFC-E6F7-516D3AE9C157">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-20 01:02:07 UTC</createdTime>
+<generatorID>3CFB9824-17DA-8368-E095-FCC96278E3C8</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="BB993719-29F7-1536-5C2B-D0ACE89CC0FD" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="0748213C-AB0A-3B0C-A81B-951FBD2FA2E4">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-20 01:02:07 UTC</createdTime>
+<generatorID>3F19F29F-FB11-0956-515D-B3D6A547BCE0</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="BB993719-29F7-1536-5C2B-D0ACE89CC0FD" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>2B703BD6-D6DE-4CAF-6265-03CA179B3E90</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codDuenno" id="B41A1808-058D-BBD5-E7E9-737CEFB2617D">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-24 17:30:48 UTC</createdTime>
+<generatorID>5A0F5441-BD40-DFB7-89C6-FC2B713BE2E7</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="BB993719-29F7-1536-5C2B-D0ACE89CC0FD" value="true"/>
+</engineerTo>
+<referedAttribute>2265D6C7-1311-E49B-9B45-5E7754F798EA</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="25FA7692-A3F8-323D-9B2A-F95D8499B113" name="equipo PK">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-20 01:02:07 UTC</createdTime>
+<generatorID>AE6E7E12-2E72-65D6-A2E2-65AAC9097638</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="BB993719-29F7-1536-5C2B-D0ACE89CC0FD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>70E00E01-F2C5-0CFC-E6F7-516D3AE9C157</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

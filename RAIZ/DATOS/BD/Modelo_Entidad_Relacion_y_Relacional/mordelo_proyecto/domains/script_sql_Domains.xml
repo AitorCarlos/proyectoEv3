@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DomainFile class="oracle.dbtools.crest.model.design.DomainFileWrapper" fileName="script_sql_Domains">
+   <domains>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_5" id="08D710CE-C4F9-F027-C7BB-546B9613E00A">
+         <createdBy>alex</createdBy>
+         <createdTime>2018-04-20 01:01:28 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>mordelo_proyecto</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>5</dataTypeSize>
+         <fileName>script_sql_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_10" id="2B703BD6-D6DE-4CAF-6265-03CA179B3E90">
+         <createdBy>alex</createdBy>
+         <createdTime>2018-04-20 01:01:28 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>mordelo_proyecto</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>10</dataTypeSize>
+         <fileName>script_sql_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_15" id="569469CB-97FA-CBC2-62A4-9B1320B89756">
+         <createdBy>alex</createdBy>
+         <createdTime>2018-04-20 01:01:28 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>mordelo_proyecto</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>15</dataTypeSize>
+         <fileName>script_sql_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_45" id="7F752055-5201-1ECC-CE07-B6E0D7BB3F0F">
+         <createdBy>alex</createdBy>
+         <createdTime>2018-04-20 01:01:28 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>mordelo_proyecto</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>45</dataTypeSize>
+         <fileName>script_sql_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="Date_0_0_0" id="810C4A7D-92EA-21C7-279C-C5BA9EE10733">
+         <createdBy>alex</createdBy>
+         <createdTime>2018-04-20 01:01:28 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>mordelo_proyecto</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>script_sql_Domains</fileName>
+         <logicalDatatype>LOGDT007</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="Integer_0_0_0" id="C5254677-43A3-415C-07C4-41C3DE848967">
+         <createdBy>alex</createdBy>
+         <createdTime>2018-04-20 01:01:28 UTC</createdTime>
+         <generatorID>Generado por el Usuario</generatorID>
+         <ownerDesignName>mordelo_proyecto</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>script_sql_Domains</fileName>
+         <logicalDatatype>LOGDT011</logicalDatatype>
+      </Domain>
+   </domains>
+</DomainFile>

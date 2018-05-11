@@ -1,0 +1,135 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AB56F63C-C8FE-9AF6-8DD4-774A494CB5AA" name="duenno">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>88943E99-793A-70D6-FB9B-BA514E7F20DC</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codDuenno" id="E04AE7E0-02A5-10BA-D53B-C8D0C27F29A1">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>2265D6C7-1311-E49B-9B45-5E7754F798EA</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="E81CDC43-C452-DD83-F456-7C68ABBB7649">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>5BBBA14F-4758-29CB-E746-872094DF8F68</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>569469CB-97FA-CBC2-62A4-9B1320B89756</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="apellido" id="26801A4D-633A-11B9-3B29-93BEC1A88D3F">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>5684767E-5EBA-0250-1CD7-9A5FDD2571A4</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>569469CB-97FA-CBC2-62A4-9B1320B89756</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="equipo_codEquipo" id="A4E95233-AB39-4F93-C9DE-D8242DA819F6">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>DD77E0EA-2657-3DAE-EDB4-8A8963329DE2</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FAAD48CD-B7A5-0D34-138F-CBC5F3D1EA44" referredColumn="DC1F0551-A343-2048-19B5-0339C559DD00"/>
+</associations>
+</Column>
+<Column name="usuarios_codUsuario" id="788BB62B-D648-4BEC-3C7D-A9C65F2CE40A">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>23A2D993-0759-9B99-0C55-8F8B6B532EA2</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1B96D1E6-8CFE-00D5-2AEB-FDB5012E786C" referredColumn="6FACFE1D-61A7-C430-A119-B43F613F6239"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8C1C5D80-449C-C789-25D8-F8D83BA91E3B" name="duenno_PK">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>0955CBAC-7148-854F-847D-8139EBFA6023</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E04AE7E0-02A5-10BA-D53B-C8D0C27F29A1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C1F8370A-8C35-39D0-C743-DDCE1EE579CE" name="duenno__IDX">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>D9BA9CEA-03C9-ABC7-72A6-26CDD0F148D2</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="788BB62B-D648-4BEC-3C7D-A9C65F2CE40A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="13C100DF-8E45-C5B7-6A79-0FDAB3DB4C47" name="duenno__IDXv1">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>5A0F5441-BD40-DFB7-89C6-FC2B713BE2E7</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="A4E95233-AB39-4F93-C9DE-D8242DA819F6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0B2EAE7F-08E0-298D-714A-CECB9E9A1492" name="duenno_usuarios_FK">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>D9BA9CEA-03C9-ABC7-72A6-26CDD0F148D2</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="788BB62B-D648-4BEC-3C7D-A9C65F2CE40A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7AA8F874-6F0A-EE93-1EF5-D13C86FC021C" name="duenno_equipo_FK">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 08:26:17 UTC</createdTime>
+<generatorID>5A0F5441-BD40-DFB7-89C6-FC2B713BE2E7</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A4E95233-AB39-4F93-C9DE-D8242DA819F6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

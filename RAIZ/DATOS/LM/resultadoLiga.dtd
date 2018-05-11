@@ -1,0 +1,10 @@
+<!ELEMENT liga (datosEquipo)*>
+        <!ATTLIST liga
+                nombre CDATA #REQUIRED>
+        <!ELEMENT datosEquipo (posicion,puntosTotales,partidosJugados)*>
+        <!ATTLIST datosEquipo
+                nombre CDATA #REQUIRED>
+        <!ELEMENT posicion (#PCDATA)>
+        <!ELEMENT puntosTotales (#PCDATA)>
+        <!ELEMENT partidosJugados (#PCDATA)>
+        ]>

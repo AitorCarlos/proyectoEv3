@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="seCompone" directorySegmentName="seg_0" id="A5FC4465-71C8-9B78-C18D-5CE421E2D4ED">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-20 01:02:07 UTC</createdTime>
+<generatorID>5414867C-4CED-4B8B-8E17-880CD725431F</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="C3B0615C-CB11-9E20-BB6C-F107865F1BDC" value="true"/>
+</engineerTo>
+<sourcePk>BB118B30-67B4-A80D-8477-ED0F1894B450</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>360526A2-9925-1792-A661-C2B355FF728A</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>ACACB0AE-77C8-5636-2245-5C238D1828EE</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

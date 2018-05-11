@@ -1,0 +1,158 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="ACACB0AE-77C8-5636-2245-5C238D1828EE" name="partido">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-20 01:02:07 UTC</createdTime>
+<generatorID>24D2BA41-866F-A2CF-F6D9-34895906A403</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="A9C1953B-8550-3C03-B3DF-6FF4811CB589" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="codPartido" id="64862C61-966B-09B2-F7D8-803EC0D9B8CC">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-20 01:02:07 UTC</createdTime>
+<generatorID>13950289-2812-D2E3-2320-F546E7D4BAF5</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="A9C1953B-8550-3C03-B3DF-6FF4811CB589" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fecha" id="55B3164A-8DE6-B017-340A-44D6309FDCB8">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-20 01:02:07 UTC</createdTime>
+<generatorID>852F2803-C67E-1070-ED91-8009AAD339FC</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="A9C1953B-8550-3C03-B3DF-6FF4811CB589" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>810C4A7D-92EA-21C7-279C-C5BA9EE10733</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="hora" id="9C769273-8390-36E9-FC1A-EDD7B88FDE3F">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-20 01:02:07 UTC</createdTime>
+<generatorID>8F519BDE-4575-527A-8631-7392646FC60F</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="A9C1953B-8550-3C03-B3DF-6FF4811CB589" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>08D710CE-C4F9-F027-C7BB-546B9613E00A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="jugado" id="039F6B1F-62C7-7FAC-28E7-DEE58FA4115C">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-20 01:02:07 UTC</createdTime>
+<generatorID>4E6AF10B-DB3D-C62D-2C08-1078483F6D01</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="A9C1953B-8550-3C03-B3DF-6FF4811CB589" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>2B703BD6-D6DE-4CAF-6265-03CA179B3E90</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="jornada codJornada" id="BA105A57-658A-3A56-170A-F3A5D65C6195">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-20 01:02:07 UTC</createdTime>
+<generatorID>A5FC4465-71C8-9B78-C18D-5CE421E2D4ED</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="A9C1953B-8550-3C03-B3DF-6FF4811CB589" value="true"/>
+</engineerTo>
+<referedAttribute>47390B01-7138-C292-62D1-F53A2AF941E0</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codEquipo1" id="5E349A16-8C17-6DAD-5B3A-6D2A94A154CE">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-24 08:17:44 UTC</createdTime>
+<generatorID>3DD32FD9-49C2-F6EB-5FCA-DF881F3CC408</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="A9C1953B-8550-3C03-B3DF-6FF4811CB589" value="true"/>
+</engineerTo>
+<referedAttribute>70E00E01-F2C5-0CFC-E6F7-516D3AE9C157</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codEquipo2" id="D9BEF263-A8E6-D33A-C826-30967F4FB5BE">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-24 08:17:40 UTC</createdTime>
+<generatorID>3E2F78EA-BE35-98AF-2121-B600AE8987B7</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="A9C1953B-8550-3C03-B3DF-6FF4811CB589" value="true"/>
+</engineerTo>
+<referedAttribute>70E00E01-F2C5-0CFC-E6F7-516D3AE9C157</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="resultadoE1" id="AA5459A5-2A17-F254-0113-FC374B8396BD">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-20 01:02:07 UTC</createdTime>
+<generatorID>FD359FEC-713C-264D-52FF-1AE6E399668C</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="A9C1953B-8550-3C03-B3DF-6FF4811CB589" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="resultadoE2" id="1C73CF4E-FF6A-522C-E007-935B993225FE">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-24 08:50:09 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="A9C1953B-8550-3C03-B3DF-6FF4811CB589" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F96C05BA-4DC0-6B53-F24A-675E6FB60139" name="partido PK">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-20 01:02:07 UTC</createdTime>
+<generatorID>9FC3FAB3-0DF4-E5A2-D7FD-921C228B9A93</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="A9C1953B-8550-3C03-B3DF-6FF4811CB589" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>64862C61-966B-09B2-F7D8-803EC0D9B8CC</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="liga" type="ligaType"/>
+
+  <xs:complexType name="ligaType">
+    <xs:sequence>
+      <xs:element type="datosEquipoType" name="datosEquipo"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="datosEquipoType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="posicion"/>
+      <xs:element type="xs:string" name="puntosTotales"/>
+      <xs:element type="xs:string" name="partidosJugados"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="nombre"/>
+  </xs:complexType>
+
+</xs:schema>

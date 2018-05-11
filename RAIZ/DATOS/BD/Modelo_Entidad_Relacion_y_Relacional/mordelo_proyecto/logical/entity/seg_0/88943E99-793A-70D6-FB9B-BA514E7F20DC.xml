@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="88943E99-793A-70D6-FB9B-BA514E7F20DC" name="duenno">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-20 01:02:07 UTC</createdTime>
+<generatorID>C747E7F8-D45B-8FE0-45BF-1BF1541DE07F</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="3D3A5BF9-D876-19C8-CB4B-992C3E1A9049" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="codDuenno" id="2265D6C7-1311-E49B-9B45-5E7754F798EA">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-24 17:30:28 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="3D3A5BF9-D876-19C8-CB4B-992C3E1A9049" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="5BBBA14F-4758-29CB-E746-872094DF8F68">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 06:29:38 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="3D3A5BF9-D876-19C8-CB4B-992C3E1A9049" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>569469CB-97FA-CBC2-62A4-9B1320B89756</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="apellido" id="5684767E-5EBA-0250-1CD7-9A5FDD2571A4">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-25 06:29:51 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="3D3A5BF9-D876-19C8-CB4B-992C3E1A9049" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>569469CB-97FA-CBC2-62A4-9B1320B89756</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codEquipo" id="DD77E0EA-2657-3DAE-EDB4-8A8963329DE2">
+<createdBy>1GDAW03</createdBy>
+<createdTime>2018-04-24 07:47:28 UTC</createdTime>
+<generatorID>5A0F5441-BD40-DFB7-89C6-FC2B713BE2E7</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="3D3A5BF9-D876-19C8-CB4B-992C3E1A9049" value="true"/>
+</engineerTo>
+<referedAttribute>70E00E01-F2C5-0CFC-E6F7-516D3AE9C157</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codUsuario" id="23A2D993-0759-9B99-0C55-8F8B6B532EA2">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-24 17:16:08 UTC</createdTime>
+<generatorID>D9BA9CEA-03C9-ABC7-72A6-26CDD0F148D2</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="3D3A5BF9-D876-19C8-CB4B-992C3E1A9049" value="true"/>
+</engineerTo>
+<referedAttribute>6AD7021F-81A9-EF33-4B7F-FB7A1B65D841</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>C5254677-43A3-415C-07C4-41C3DE848967</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="0955CBAC-7148-854F-847D-8139EBFA6023" name="duenno PK">
+<createdBy>alex</createdBy>
+<createdTime>2018-04-20 01:02:07 UTC</createdTime>
+<generatorID>E8F441BB-63E3-F805-0AB9-C3ED2F07DC6B</generatorID>
+<ownerDesignName>mordelo_proyecto</ownerDesignName>
+<engineerTo>
+<item key="3D3A5BF9-D876-19C8-CB4B-992C3E1A9049" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2265D6C7-1311-E49B-9B45-5E7754F798EA</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
