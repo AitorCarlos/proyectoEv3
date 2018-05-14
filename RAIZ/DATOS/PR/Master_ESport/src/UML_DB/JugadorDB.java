@@ -13,13 +13,25 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 public  class JugadorDB {
     
-    //registrar jugador
+    //registrar jugador sin sueldo
     public static void registrarJugador(Jugador jugador) throws Exception{
 
        DbConnection conex = new DbConnection();
 
         Statement sentencia = conex.getConnection().createStatement();
         sentencia.executeUpdate("INSERT INTO jugador (nombre, apellido, nickname) VALUES ('"+jugador.getNombre()+"', '"+jugador.getApellido()+"', '"+jugador.getNickname()+"')");
+        sentencia.close();
+
+        conex.desconectar();
+    }
+    
+    //registrar jugador con sueldo
+    public static void registrarJugadorS(Jugador jugador) throws Exception{
+
+       DbConnection conex = new DbConnection();
+
+        Statement sentencia = conex.getConnection().createStatement();
+        sentencia.executeUpdate("INSERT INTO jugador (nombre, apellido, sueldo, nickname) VALUES ('"+jugador.getNombre()+"', '"+jugador.getApellido()+"', "+jugador.getSueldo()+", '"+jugador.getNickname()+"')");
         sentencia.close();
 
         conex.desconectar();
