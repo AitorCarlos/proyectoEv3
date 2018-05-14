@@ -8,6 +8,9 @@ package UML_DB;
 import UML.Duenno;
 import UML.Equipo;
 import UML.Jugador;
+import static UML_DB.DuennoDB.consultarDuennoCod;
+import static UML_DB.DuennoDB.consultarDuennoNickName;
+import static UML_DB.EquipoDB.consultarEquipoCod;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -18,8 +21,10 @@ import java.util.ArrayList;
  * @author 1GDAW03
  */
 public class PeticionDB {
-    
-    public static String tipo;
+
+    public static String tipoDuenno;
+    public static String tipoEquipo;
+    public static String tipoJugador;
     
     public void peticionDuenno(Duenno duenno, String tipo) throws Exception{
 
@@ -38,20 +43,20 @@ public class PeticionDB {
        DbConnection conex = new DbConnection();
 
         Statement sentencia = conex.getConnection().createStatement();
-        sentencia.executeUpdate("INSERT INTO peticion (nombre, apellido, nickname, sueldo, tipo)"
-                + "VALUES ('"+jugador.getNombre()+"', '"+jugador.getApellido()+"', '"+jugador.getNickname()+"', '"+jugador.getSueldo()+"', '"+tipo+"')");
+        sentencia.executeUpdate("INSERT INTO peticion (nombre, apellido, nickname, tipo)"
+                + "VALUES ('"+jugador.getNombre()+"', '"+jugador.getApellido()+"', '"+jugador.getNickname()+"', '"+tipo+"')");
         sentencia.close();
 
         conex.desconectar();
     }
     
-    public void peticionEquipo(Equipo equipo, String tipo) throws Exception{
+    public void peticionEquipo(Equipo equipo, Duenno duenno, String tipo) throws Exception{
 
        DbConnection conex = new DbConnection();
 
         Statement sentencia = conex.getConnection().createStatement();
-        sentencia.executeUpdate("INSERT INTO peticion (nombre, tipo)"
-                + "VALUES ('"+equipo.getNombre()+"', '"+tipo+"')");
+        sentencia.executeUpdate("INSERT INTO peticion (nombre, nickname, tipo)"
+                + "VALUES ('"+equipo.getNombre()+"', '"+duenno.getNickname()+"', '"+tipo+"')");
         sentencia.close();
 
         conex.desconectar();
@@ -73,7 +78,7 @@ public class PeticionDB {
             duenno.setApellido(res.getString("apellido"));
             duenno.setContrasenna(res.getString("contrasenna"));
             duenno.setPermiso(res.getString("permiso"));
-            tipo = res.getString("tipo");
+            tipoDuenno = res.getString("tipo");
             
         }
         else
@@ -102,7 +107,7 @@ public class PeticionDB {
             jugador.setApellido(res.getString("apellido"));
             jugador.setNickname(res.getString("nickname"));
             jugador.setSueldo(Double.valueOf(res.getString("sueldo")));
-            tipo = res.getString("tipo");
+            tipoJugador = res.getString("tipo");
             
         }
         else
@@ -128,7 +133,8 @@ public class PeticionDB {
             
             equipo = new Equipo();
             equipo.setNombre(res.getString("nombre"));
-            tipo = res.getString("tipo");
+            equipo.setDuenno(consultarDuennoCod(Integer.parseInt(res.getString("duenno_codduenno"))));
+            tipoEquipo = res.getString("tipo");
             
         }
         else
@@ -159,7 +165,7 @@ public class PeticionDB {
           duenno.setApellido(res.getString("apellido"));
           duenno.setContrasenna(res.getString("contrasenna"));
           duenno.setPermiso(res.getString("permiso"));
-          tipo = res.getString("tipo");
+          tipoDuenno = res.getString("tipo");
           listaDuenno.add(duenno);
           
         }
@@ -170,32 +176,56 @@ public class PeticionDB {
         return listaDuenno;
     }
     
-    public ArrayList <Duenno> listaPetiJugador() throws Exception{
+    public ArrayList <Jugador> listaPetiJugador() throws Exception{
         
-        ArrayList <Duenno> listaDuenno = new ArrayList();
+        ArrayList <Jugador> listaJugador = new ArrayList();
 
        DbConnection conex = new DbConnection();
 
         Statement consulta = conex.getConnection().createStatement();
-        ResultSet res = consulta.executeQuery("Select * from peticion where tipo = 'duenno'");
+        ResultSet res = consulta.executeQuery("Select * from peticion where tipo = 'jugador'");
         
         while(res.next()){
             
-          Duenno duenno = new Duenno();
-          duenno.setNickname(res.getString("nickname"));
-          duenno.setNombre(res.getString("nombre"));
-          duenno.setApellido(res.getString("apellido"));
-          duenno.setContrasenna(res.getString("contrasenna"));
-          duenno.setPermiso(res.getString("permiso"));
-          tipo = res.getString("tipo");
-          listaDuenno.add(duenno);
+          Jugador jugador = new Jugador();
+          jugador.setNombre(res.getString("nombre"));
+          jugador.setApellido(res.getString("apellido"));
+          jugador.setNickname(res.getString("nickname"));
+          //jugador.setEquipo(consultarEquipoCod(Integer.parseInt(res.getString("equipo_codequipo"))));
+          tipoJugador = res.getString("tipo");
+          listaJugador.add(jugador);
           
         }
         res.close();
         consulta.close();
         conex.desconectar();
    
-        return listaDuenno;
+        return listaJugador;
+    }
+    
+    public ArrayList <Equipo> listaPetiEquipo() throws Exception{
+        
+        ArrayList <Equipo> listaEquipo = new ArrayList();
+
+       DbConnection conex = new DbConnection();
+
+        Statement consulta = conex.getConnection().createStatement();
+        ResultSet res = consulta.executeQuery("Select * from peticion where tipo = 'equipo'");
+        
+        while(res.next()){
+            
+          Equipo equipo = new Equipo();
+          equipo.setNombre(res.getString("nombre"));
+          equipo.setDuenno(consultarDuennoNickName(res.getString("nickname")));
+          tipoEquipo = res.getString("tipo");
+          listaEquipo.add(equipo);
+          
+        }
+        res.close();
+        consulta.close();
+        conex.desconectar();
+   
+        return listaEquipo;
     }
     
     public void borrarPeticionDJ(String nickname) throws Exception{
@@ -204,6 +234,16 @@ public class PeticionDB {
    
         Statement sentencia = conex.getConnection().createStatement();
         sentencia.executeUpdate("DELETE FROM peticion WHERE nickname = '"+nickname+"'");
+        
+        conex.desconectar();
+    }
+    
+    public void borrarPeticionE(String nombre) throws Exception{
+    
+        DbConnection conex = new DbConnection();
+   
+        Statement sentencia = conex.getConnection().createStatement();
+        sentencia.executeUpdate("DELETE FROM peticion WHERE nombre = '"+nombre+"'");
         
         conex.desconectar();
     }

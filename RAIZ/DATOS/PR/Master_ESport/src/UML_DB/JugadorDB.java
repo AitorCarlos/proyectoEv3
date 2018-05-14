@@ -159,16 +159,21 @@ public  class JugadorDB {
     }
     
     //Modificar el codigo_codequipo en el jugador, asignarle un jugador al equipo
-    public void modificarJugadorCodEquipo(Equipo equipo, Jugador jugador) throws Exception{
+    public static void modificarJugadorCodEquipo(Equipo equipo, Jugador jugador) throws Exception{
 
+        
        DbConnection conex = new DbConnection();
 
         Statement sentencia = conex.getConnection().createStatement();
-        sentencia.executeUpdate("UPDATE jugador SET equipo_codequipo = '"+equipo.getCodequipo()+"' where codjugador = '"+jugador.getCodjugador()+"'");
+        if (equipo == null) 
+            sentencia.executeUpdate("UPDATE jugador SET equipo_codequipo = null, sueldo = null where codjugador = '"+jugador.getCodjugador()+"'");
+        else
+            sentencia.executeUpdate("UPDATE jugador SET equipo_codequipo = '"+equipo.getCodequipo()+"', sueldo = " + jugador.getSueldo() + " where codjugador = '"+jugador.getCodjugador()+"'");
         sentencia.close();
 
         conex.desconectar();
     }
+    
     
     //consultar jugador sin equipo
     public Jugador conJuga(String nombre) throws Exception{
@@ -254,5 +259,8 @@ public  class JugadorDB {
  
         return jugadores;
     }
+    
+    
+    
     
 }

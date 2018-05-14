@@ -1,4 +1,4 @@
-package Views.Segundarios;
+package Views.Secundarios;
 
 import UML.Equipo;
 import UML.Jugador;

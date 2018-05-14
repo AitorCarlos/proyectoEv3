@@ -1,4 +1,4 @@
-package Views.Segundarios;
+package Views.Secundarios;
 
 import UML.Duenno;
 import UML.Equipo;
@@ -60,6 +60,8 @@ public class ModificacionesPanel extends javax.swing.JPanel {
         tfNickname = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jbActualizar = new javax.swing.JButton();
+        jbAnnadirEquipo = new javax.swing.JButton();
+        jbDespedir = new javax.swing.JButton();
 
         jlNombreEquipo.setText("Nombre Equipo");
 
@@ -110,6 +112,21 @@ public class ModificacionesPanel extends javax.swing.JPanel {
             }
         });
 
+        jbAnnadirEquipo.setText("AÑADIR A TU EQUIPO");
+        jbAnnadirEquipo.setEnabled(false);
+        jbAnnadirEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAnnadirEquipoActionPerformed(evt);
+            }
+        });
+
+        jbDespedir.setText("DESPEDIR");
+        jbDespedir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbDespedirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,7 +141,10 @@ public class ModificacionesPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jbActualizar)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jbDespedir)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jbActualizar))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2)
@@ -146,12 +166,15 @@ public class ModificacionesPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel8))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbJugadorSinEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfSueldoDisponible, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jbAnnadirEquipo)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel8))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbJugadorSinEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfSueldoDisponible, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(0, 68, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -173,7 +196,9 @@ public class ModificacionesPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel9)
-                                    .addComponent(tfSueldoDisponible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(tfSueldoDisponible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jbAnnadirEquipo))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -199,7 +224,9 @@ public class ModificacionesPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel5)
                                     .addComponent(tfSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbActualizar)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jbActualizar)
+                            .addComponent(jbDespedir))
                         .addContainerGap(131, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -239,12 +266,47 @@ public class ModificacionesPanel extends javax.swing.JPanel {
             tfSueldoDisponible.setEditable(false);
             tfSueldoDisponible.setEnabled(false);
             tfSueldoDisponible.setText("X");
+            jbAnnadirEquipo.setEnabled(false);
         }else{
             tfSueldoDisponible.setEditable(true);
             tfSueldoDisponible.setEnabled(true);
             tfSueldoDisponible.setText("");
+            jbAnnadirEquipo.setEnabled(true);
         }
     }//GEN-LAST:event_cbJugadorSinEquipoItemStateChanged
+
+    private void jbAnnadirEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAnnadirEquipoActionPerformed
+        
+        if (Integer.parseInt(tfSueldoDisponible.getText())<760) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Sueldo mínimo 760");
+        }else{
+            try {
+                        tfSueldoDisponible.setEnabled(false);
+                        tfSueldoDisponible.setText("");
+                        Jugador jugador = JugadorDB.consultarJugadorNick(cbJugadorSinEquipo.getSelectedItem().toString());
+                        jugador.setSueldo(Double.parseDouble(tfSueldoDisponible.getText()));
+                        jugador.setEquipo(EquipoDB.consultarEquipoCod(DuennoDB.consultarDuennoNickName(usuario.getNickname()).getCodusuario()));
+                        JugadorDB.modificarJugadorCodEquipo(EquipoDB.consultarEquipoCodDuenno(DuennoDB.consultarDuennoNickName(usuario.getNickname()).getCodusuario()), jugador);
+                        javax.swing.JOptionPane.showMessageDialog(this, "Jugador Añadido");
+                        this.repaint();
+                    } catch (Exception ex) {
+                        javax.swing.JOptionPane.showMessageDialog(this, ex.getMessage());
+                    }
+        }
+    }//GEN-LAST:event_jbAnnadirEquipoActionPerformed
+
+    private void jbDespedirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDespedirActionPerformed
+        try {
+            // TODO add your handling code here:
+            Jugador jugador = JugadorDB.consultarJugadorNick(tfNickname.getText());
+            jugador.setSueldo(null);
+            JugadorDB.modificarJugadorCodEquipo(null, jugador);
+            
+        } catch (Exception ex) {
+            Logger.getLogger(ModificacionesPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jbDespedirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -261,6 +323,8 @@ public class ModificacionesPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbActualizar;
+    private javax.swing.JButton jbAnnadirEquipo;
+    private javax.swing.JButton jbDespedir;
     private javax.swing.JLabel jlNombreEquipo;
     private javax.swing.JTextField tfApellido;
     private javax.swing.JTextField tfNickname;

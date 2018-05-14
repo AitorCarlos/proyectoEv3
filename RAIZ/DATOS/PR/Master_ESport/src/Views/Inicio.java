@@ -1,8 +1,9 @@
 package Views;
 
+import Views.Secundarios.CrearPanel;
+import Views.Secundarios.InicioPanel;
 import PARSES.clasificacionSax;
 import UML.Usuario;
-import Views.Segundarios.*;
 import Views.Consultas.*;
 import Views.Peticiones.*;
 import java.awt.BorderLayout;

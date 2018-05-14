@@ -34,18 +34,18 @@
                                   <Component id="txApellido" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txNickname" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="BCrearUsuario" min="-2" max="-2" attributes="0"/>
+                              <Component id="BCrearUsuario" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="txContrasena" min="-2" pref="102" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="BVerPass" min="-2" max="-2" attributes="0"/>
+                              <Component id="cVerpass" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Component id="LCrearApellidos" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="41" max="32767" attributes="0"/>
+              <EmptySpace pref="77" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -67,11 +67,11 @@
                   <Component id="LCrearApellidos" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txApellido" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txContrasena" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="LCrearContraseña" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BVerPass" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="cVerpass" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -94,11 +94,6 @@
     <Component class="javax.swing.JTextField" name="txApellido">
     </Component>
     <Component class="javax.swing.JPasswordField" name="txContrasena">
-    </Component>
-    <Component class="javax.swing.JToggleButton" name="BVerPass">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ver Pass"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txNombre">
     </Component>
@@ -129,6 +124,15 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xbf;Due&#xf1;o?"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="cVerpass">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ver"/>
+        <Property name="opaque" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cVerpassActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

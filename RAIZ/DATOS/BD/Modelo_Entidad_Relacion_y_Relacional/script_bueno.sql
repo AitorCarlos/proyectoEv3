@@ -22,7 +22,7 @@ ALTER TABLE peticion ADD CONSTRAINT peticion_PK PRIMARY KEY ( codPeticion ) ;
 
 CREATE TABLE duenno
   (
-    codDuenno           INTEGER GENERATED ALWAYS AS IDENTITY ,
+    codDuenno           INTEGER ,
     equipo_codEquipo    INTEGER ,
     usuarios_codUsuario INTEGER NOT NULL
   ) ;
