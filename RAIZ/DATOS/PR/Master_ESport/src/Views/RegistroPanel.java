@@ -47,17 +47,15 @@ public class RegistroPanel extends javax.swing.JPanel {
         txNickname = new javax.swing.JTextField();
         txApellido = new javax.swing.JTextField();
         txContrasena = new javax.swing.JPasswordField();
-        BVerPass = new javax.swing.JToggleButton();
         txNombre = new javax.swing.JTextField();
         BCrearUsuario = new javax.swing.JButton();
         LCrearNombredeUsuario = new javax.swing.JLabel();
         LCrearNombre = new javax.swing.JLabel();
         LCrearApellidos = new javax.swing.JLabel();
         jcDuenno = new javax.swing.JCheckBox();
+        cVerpass = new javax.swing.JCheckBox();
 
         LCrearContraseña.setText("Contraseña");
-
-        BVerPass.setText("Ver Pass");
 
         BCrearUsuario.setText("Crear Usuario");
         BCrearUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -73,6 +71,14 @@ public class RegistroPanel extends javax.swing.JPanel {
         LCrearApellidos.setText("Apellidos");
 
         jcDuenno.setText("¿Dueño?");
+
+        cVerpass.setText("Ver");
+        cVerpass.setOpaque(false);
+        cVerpass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cVerpassActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -98,9 +104,9 @@ public class RegistroPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BVerPass))))
+                                .addComponent(cVerpass))))
                     .addComponent(LCrearApellidos))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,11 +123,11 @@ public class RegistroPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LCrearApellidos)
                     .addComponent(txApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LCrearContraseña)
-                    .addComponent(BVerPass, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cVerpass))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BCrearUsuario)
@@ -162,14 +168,23 @@ public class RegistroPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_BCrearUsuarioActionPerformed
 
+    private void cVerpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cVerpassActionPerformed
+        if(cVerpass.isSelected()){
+            txContrasena.setEchoChar((char)0);
+        }
+        else {
+            txContrasena.setEchoChar('*');
+        }
+    }//GEN-LAST:event_cVerpassActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BCrearUsuario;
-    private javax.swing.JToggleButton BVerPass;
     private javax.swing.JLabel LCrearApellidos;
     private javax.swing.JLabel LCrearContraseña;
     private javax.swing.JLabel LCrearNombre;
     private javax.swing.JLabel LCrearNombredeUsuario;
+    private javax.swing.JCheckBox cVerpass;
     private javax.swing.JCheckBox jcDuenno;
     private javax.swing.JTextField txApellido;
     private javax.swing.JPasswordField txContrasena;

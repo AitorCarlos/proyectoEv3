@@ -19,6 +19,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Desktop;
+import java.awt.event.KeyEvent;
 import java.net.URI;        
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,6 +33,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         imglinkw();
+        JCUsuarioInicio.requestFocus();
     }
     
 //Visualizacion de paneles     
@@ -172,6 +174,11 @@ public void RegistroPanel(){
         JRContraseñaUsuario.setBorder(null);
         JRContraseñaUsuario.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         JRContraseñaUsuario.setPlaceholder("Password");
+        JRContraseñaUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                JRContraseñaUsuarioKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelLoginLayout = new javax.swing.GroupLayout(PanelLogin);
         PanelLogin.setLayout(PanelLoginLayout);
@@ -317,6 +324,12 @@ public void RegistroPanel(){
     private void JCUsuarioInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCUsuarioInicioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JCUsuarioInicioActionPerformed
+
+    private void JRContraseñaUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JRContraseñaUsuarioKeyPressed
+        if (evt.getKeyCode()== KeyEvent.VK_ENTER) {
+            BAcceder.doClick();
+        }
+    }//GEN-LAST:event_JRContraseñaUsuarioKeyPressed
 
     public static void main(String args[]) {
         try {
