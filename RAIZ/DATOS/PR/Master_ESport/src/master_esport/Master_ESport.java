@@ -2,13 +2,13 @@
 package master_esport;
 import UML.*;
 import UML_DB.*;
-import Uml.Calendario;
 import Views.*;
 import java.text.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 public class Master_ESport{
     
@@ -144,7 +144,7 @@ public class Master_ESport{
             
             for(int x = 0; x < d.size(); x++){
                 
-                list.addElement("Nombre: "+d.get(x).getNombre() +" ,  Permiso: "+d.get(x).getPermiso()+" ,  Tipo: "+Master_ESport.verTipoDuenno());                                
+                list.addElement("Tipo Peticion: "+Master_ESport.verTipoDuenno()+ " ,  Nombre: "+d.get(x).getNombre() +" ,  Permiso: "+d.get(x).getPermiso());                                
             }
 
         }
@@ -194,7 +194,7 @@ public class Master_ESport{
             
             for(int x = 0; x < d.size(); x++){
                 
-                list.addElement("Nombre: "+d.get(x).getNombre()+" ,  Dueño: "+d.get(x).getDuenno().getNickname() +" ,  Tipo: "+Master_ESport.verTipoEquipo());                                
+                list.addElement("Tipo Peticion: "+Master_ESport.verTipoEquipo()+" ,  Nombre: "+d.get(x).getNombre()+" ,  Dueño: "+d.get(x).getDuenno().getNickname());                                
             }
 
         }
@@ -212,11 +212,18 @@ public class Master_ESport{
     }
     
     //Crear peticion jugador
-    public static void peticionJugador(Jugador jugador, String tipo) throws Exception{
+    public static void peticionJugador(Jugador jugador, Equipo equipo, String tipo) throws Exception{
     
         p_DB = new PeticionDB();
         
-        p_DB.peticionJugador(jugador, tipo);
+        if(equipo == null){
+        
+            p_DB.peticionJugadorSin(jugador, tipo);
+        }
+        else{
+            
+            p_DB.peticionJugadorEquipo(jugador, equipo, tipo);
+        }
     }
     //Ver peticion equipo
     public static ArrayList verPeticionJugador() throws Exception{
@@ -243,7 +250,7 @@ public class Master_ESport{
             
             for(int x = 0; x < d.size(); x++){
                 
-                list.addElement("Nombre: "+d.get(x).getNombre()+" ,  Tipo: "+Master_ESport.verTipoJugador());                                
+                list.addElement("Tipo Peticion: "+Master_ESport.verTipoJugador()+" ,  Nombre: "+d.get(x).getNombre());                                
             }
 
         }
@@ -252,6 +259,13 @@ public class Master_ESport{
     //Aceptar peticion de jugador y añadirlo a la base de datos
     public static void anadirJugador(Jugador jugador) throws Exception{
         
-        JugadorDB.registrarJugador(jugador);
+        if(jugador.getEquipo()==null){
+        
+            JugadorDB.registrarJugadorS(jugador);
+        }
+        else{
+            
+            JugadorDB.registrarJugadorConEquipo(jugador);
+        }
     }
 }

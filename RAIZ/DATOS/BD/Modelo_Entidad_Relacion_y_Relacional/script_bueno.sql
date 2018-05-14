@@ -1,19 +1,19 @@
 DROP TABLE  duenno cascade constraints;
 DROP TABLE jugador cascade constraints;
 DROP TABLE partido cascade constraints;
-drop table equipo cascade constraints;
-drop table jornada cascade constraints;
-drop table usuarios cascade constraints;
-drop table peticion cascade constraints;
+DROP TABLE equipo cascade constraints;
+DROP TABLE jornada cascade constraints;
+DROP TABLE usuarios cascade constraints;
+DROP TABLE peticion cascade constraints;
 
 CREATE TABLE peticion(
   
   codPeticion INTEGER GENERATED ALWAYS AS IDENTITY ,
-  codDuenno INTEGER,
   nickname VARCHAR(15),
   nombre VARCHAR(15),
   apellido VARCHAR(15),
-  sueldo INTEGER,
+  sueldo NUMBER,
+  equipo VARCHAR2(15),
   contrasenna VARCHAR(15),
   permiso VARCHAR(15),
   tipo VARCHAR(15)
@@ -22,7 +22,7 @@ ALTER TABLE peticion ADD CONSTRAINT peticion_PK PRIMARY KEY ( codPeticion ) ;
 
 CREATE TABLE duenno
   (
-    codDuenno           INTEGER ,
+    codDuenno           INTEGER,
     equipo_codEquipo    INTEGER ,
     usuarios_codUsuario INTEGER NOT NULL
   ) ;
@@ -53,7 +53,7 @@ CREATE TABLE jugador
     nombre           VARCHAR2 (10) NOT NULL ,
     apellido         VARCHAR2 (15) ,
     nickname         VARCHAR2 (10) UNIQUE NOT NULL ,
-    sueldo           INTEGER ,
+    sueldo           NUMBER ,
     equipo_codEquipo INTEGER
   ) ;
 ALTER TABLE jugador ADD CONSTRAINT jugador_PK PRIMARY KEY ( codJugador ) ;
@@ -78,8 +78,8 @@ CREATE TABLE usuarios
   (
     codUsuario  INTEGER GENERATED ALWAYS AS IDENTITY ,
    nickname     VARCHAR2 (15) UNIQUE NOT NULL ,
-    nombre     VARCHAR2 (15) NOT NULL ,
-    apellido     VARCHAR2 (15) NOT NULL ,
+   nombre VARCHAR2(15) NOT NULL,
+   apellido VARCHAR2(15) NOT NULL,
     contrasenna VARCHAR2 (15) NOT NULL ,
     permiso     VARCHAR2 (15) NOT NULL
   ) ;
@@ -106,7 +106,7 @@ DELETE CASCADE ;
 ALTER TABLE partido ADD CONSTRAINT partido_jornada_FK FOREIGN KEY ( jornada_codJornada ) REFERENCES jornada ( codJornada ) ON
 DELETE CASCADE ;
 
-
+/*
 --TRIGGERS
 set serveroutput on;
 
@@ -212,5 +212,3 @@ AS
   
 END MODIFICAR1;
 /
-
-

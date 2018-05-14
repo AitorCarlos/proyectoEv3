@@ -1,4 +1,4 @@
-package Uml;
+package UML;
 
 import java.sql.Array;
 import java.util.ArrayList;
