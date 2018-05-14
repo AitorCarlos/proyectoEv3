@@ -29,7 +29,7 @@ import UML_DB.*;
 
 public class ultimaJornadaParse {
 
-    public static void main(String[] args) throws Exception {
+    public static void main() throws Exception {
         String nombre_archivo = "UltimaJornada";
         
         //CREAR ARRAYLIST PARA DATOS

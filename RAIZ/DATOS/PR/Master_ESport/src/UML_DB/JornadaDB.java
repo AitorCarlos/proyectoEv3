@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package UML_DB;
 
 import java.sql.Statement;
@@ -44,7 +39,7 @@ public class JornadaDB {
         return jornada;
     }
     
-    public Jornada consultarJornada(int codJornada) throws Exception{
+    public static Jornada consultarJornada(int codJornada) throws Exception{
         
         Jornada jornada = null;
         DbConnection conex= new  DbConnection();
@@ -53,15 +48,13 @@ public class JornadaDB {
         consulta.setInt(1, codJornada);
         ResultSet res = consulta.executeQuery();
 
-        if(res.next()){
+        while(res.next()){
             
             jornada = new Jornada();
             jornada.setCodJornada(Integer.parseInt(res.getString("codjornada")));
             jornada.setFechaInicio(res.getDate("fechajornadai"));
             jornada.setFechaFin(res.getDate("fechajornadaf"));
         }
-        else
-            throw new Exception ("Jornada no encontrada");
        
 
         res.close();
@@ -97,7 +90,7 @@ public class JornadaDB {
         return listaJornada;
     }
     
-        public static ArrayList <Jornada> clasificacionJornadas() throws Exception{
+    public static ArrayList <Jornada> clasificacionJornadas() throws Exception{
         
         ArrayList <Jornada> listaJornada = new ArrayList();
 
@@ -120,6 +113,16 @@ public class JornadaDB {
         conex.desconectar();
    
         return listaJornada;
+    }
+    
+    public static void borrarTodasJornadas() throws Exception{
+    
+        DbConnection conex= new  DbConnection();
+   
+        Statement sentencia = conex.getConnection().createStatement();
+        sentencia.executeUpdate("DELETE FROM jornada");
+        
+        conex.desconectar();
     }
     
     public void borrarJornada(int codJornada) throws Exception{
