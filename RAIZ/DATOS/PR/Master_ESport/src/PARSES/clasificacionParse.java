@@ -25,7 +25,7 @@ import javax.xml.transform.OutputKeys;
 
 public class clasificacionParse {
 
-    public static void main(String[] args) throws Exception {
+    public static void main() throws Exception {
         String nombre_archivo = "calsificacion";
         //LLAMAR A FUNCION QUE CREA EL FICHERO PASANDOLE EL ARRAYLIST
         try { 

@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
+import static master_esport.Master_ESport.cargarParses;
 
 public class Inicio extends javax.swing.JFrame {
     
@@ -338,8 +339,9 @@ public void AdministrarUsuarios(){
     }//GEN-LAST:event_BInicioDueñoActionPerformed
 
     private void BInicioInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInicioInicioActionPerformed
-//LLamar a la clase        
+//LLamar a la clase     
         InicioPanel();
+        
        
            
            

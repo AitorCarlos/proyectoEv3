@@ -13,13 +13,25 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 public  class JugadorDB {
     
-    //registrar jugador
+    //registrar jugador sin sueldo
     public static void registrarJugador(Jugador jugador) throws Exception{
 
        DbConnection conex = new DbConnection();
 
         Statement sentencia = conex.getConnection().createStatement();
         sentencia.executeUpdate("INSERT INTO jugador (nombre, apellido, nickname) VALUES ('"+jugador.getNombre()+"', '"+jugador.getApellido()+"', '"+jugador.getNickname()+"')");
+        sentencia.close();
+
+        conex.desconectar();
+    }
+    
+    //registrar jugador con sueldo
+    public static void registrarJugadorS(Jugador jugador) throws Exception{
+
+       DbConnection conex = new DbConnection();
+
+        Statement sentencia = conex.getConnection().createStatement();
+        sentencia.executeUpdate("INSERT INTO jugador (nombre, apellido, sueldo, nickname) VALUES ('"+jugador.getNombre()+"', '"+jugador.getApellido()+"', "+jugador.getSueldo()+", '"+jugador.getNickname()+"')");
         sentencia.close();
 
         conex.desconectar();
@@ -87,6 +99,34 @@ public  class JugadorDB {
             jugador.setApellido(res.getString("apellido"));
             jugador.setNickname(res.getString("nickname"));
             jugador.setSueldo(Double.parseDouble(res.getString("sueldo")));
+            
+        }
+       
+
+        res.close();
+        consulta.close();
+        conex.desconectar();
+ 
+        return jugador;
+    }
+    
+        //buscar jugador y el equipo mediante su Nickname
+    public static Jugador consultarJugadorNickSinEquipo(String nickname) throws Exception{
+        
+        Jugador jugador = null;
+       DbConnection conex = new DbConnection();
+   
+        PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM jugador where nickname = ? ");
+        consulta.setString(1, nickname);
+        ResultSet res = consulta.executeQuery();
+
+        while(res.next()){
+            
+            jugador = new Jugador();
+            jugador.setCodjugador(Integer.parseInt(res.getString("codjugador")));
+            jugador.setNombre(res.getString("nombre"));
+            jugador.setApellido(res.getString("apellido"));
+            jugador.setNickname(res.getString("nickname"));
             
         }
        

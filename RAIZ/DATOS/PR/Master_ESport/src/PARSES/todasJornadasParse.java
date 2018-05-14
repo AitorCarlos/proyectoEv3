@@ -24,7 +24,7 @@ import UML_DB.*;
 
 public class todasJornadasParse {
 
-    public static void main(String[] args) throws Exception {
+    public static void main() throws Exception {
         String nombre_archivo = "TodasJornadas";
         
         //CREAR ARRAYLIST PARA DATOS

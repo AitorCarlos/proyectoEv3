@@ -11,6 +11,7 @@ import UML.Jugador;
 import static UML_DB.DuennoDB.consultarDuennoCod;
 import static UML_DB.DuennoDB.consultarDuennoNickName;
 import static UML_DB.EquipoDB.consultarEquipoCod;
+import static UML_DB.EquipoDB.consultarEquipoNom;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -38,13 +39,25 @@ public class PeticionDB {
         conex.desconectar();
     }
     
-    public void peticionJugador(Jugador jugador, String tipo) throws Exception{
+    public void peticionJugadorEquipo(Jugador jugador, Equipo equipo, String tipo) throws Exception{
 
        DbConnection conex = new DbConnection();
 
         Statement sentencia = conex.getConnection().createStatement();
-        sentencia.executeUpdate("INSERT INTO peticion (nombre, apellido, nickname, tipo)"
-                + "VALUES ('"+jugador.getNombre()+"', '"+jugador.getApellido()+"', '"+jugador.getNickname()+"', '"+tipo+"')");
+        sentencia.executeUpdate("INSERT INTO peticion (nombre, apellido, nickname, sueldo, equipo, tipo)"
+                + "VALUES ('"+jugador.getNombre()+"', '"+jugador.getApellido()+"', '"+jugador.getNickname()+"', "+jugador.getSueldo()+", '"+equipo.getNombre()+"', '"+tipo+"')");
+        sentencia.close();
+
+        conex.desconectar();
+    }
+    
+    public void peticionJugadorSin(Jugador jugador, String tipo) throws Exception{
+
+       DbConnection conex = new DbConnection();
+
+        Statement sentencia = conex.getConnection().createStatement();
+        sentencia.executeUpdate("INSERT INTO peticion (nombre, apellido, nickname, sueldo, tipo)"
+                + "VALUES ('"+jugador.getNombre()+"', '"+jugador.getApellido()+"', '"+jugador.getNickname()+"', "+jugador.getSueldo()+", '"+tipo+"')");
         sentencia.close();
 
         conex.desconectar();
@@ -191,7 +204,15 @@ public class PeticionDB {
           jugador.setNombre(res.getString("nombre"));
           jugador.setApellido(res.getString("apellido"));
           jugador.setNickname(res.getString("nickname"));
-          //jugador.setEquipo(consultarEquipoCod(Integer.parseInt(res.getString("equipo_codequipo"))));
+          if(res.getString("sueldo")==null){
+          
+              jugador.setSueldo(0d);
+          }
+          else{
+              
+              jugador.setSueldo(Double.parseDouble(res.getString("sueldo")));
+          }
+          jugador.setEquipo(consultarEquipoNom(res.getString("equipo")));
           tipoJugador = res.getString("tipo");
           listaJugador.add(jugador);
           
