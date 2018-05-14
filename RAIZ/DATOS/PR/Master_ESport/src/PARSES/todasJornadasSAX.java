@@ -1,6 +1,7 @@
 package PARSES;
 
 import UML.*;
+import master_esport.Master_ESport;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -118,19 +119,6 @@ public todasJornadasSAX() {
     }
     
         public java.sql.Date cambiarFormato(String fecha){
-            String nuevaFecha ="";
-            for (int i = 0; i < 4; i++) {
-                nuevaFecha =nuevaFecha + fecha.charAt(i);
-            }
-            nuevaFecha = nuevaFecha + "/";
-            for (int i = 5; i < 7; i++) {
-                nuevaFecha =nuevaFecha + fecha.charAt(i);
-            }
-            nuevaFecha = nuevaFecha + "/";
-            for (int i = 8; i < 10; i++) {
-                nuevaFecha =nuevaFecha + fecha.charAt(i);
-            }
-            return Master_ESport.crearFecha(nuevaFecha);
-    }
-
+            return  Master_ESport.crearFecha(master_esport.Master_ESport.cambiarFormato(fecha));
+        }
 }

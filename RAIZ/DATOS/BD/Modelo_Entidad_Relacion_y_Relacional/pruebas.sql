@@ -17,6 +17,8 @@ select * from partido order by Jornada_Codjornada asc;
 update partido set jugado = 'true' where jornada_codjornada=1;
 update partido set jugado = 'true' where codpartido=1072;
 
+delete from equipo;
+
 select * from duenno;
 SELECT * FROM jugador where equipo_codequipo is null ;
 select * from usuarios;

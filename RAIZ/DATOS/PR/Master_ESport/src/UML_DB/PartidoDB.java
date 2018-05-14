@@ -117,7 +117,7 @@ public class PartidoDB {
         return listaPartido;
     }
     
-        public static ArrayList <Partido> listaPartidoPorJornada(int codJornada) throws Exception{
+    public static ArrayList <Partido> listaPartidoPorJornada(int codJornada) throws Exception{
         
         ArrayList <Partido> listaPartido = new ArrayList();
 
@@ -147,7 +147,7 @@ public class PartidoDB {
         return listaPartido;
     }
     
-        public static ArrayList <Equipo> clasificacionEquipos() throws Exception{
+    public static ArrayList <Equipo> clasificacionEquipos() throws Exception{
         
         ArrayList <Equipo> listaEquipos = new ArrayList();
         
@@ -168,7 +168,24 @@ public class PartidoDB {
    
         return listaEquipos;
     }
+
+    public static  void actualizarPartido(Partido partido) throws Exception{
+
+       DbConnection conex = new DbConnection();
+
+        PreparedStatement sentencia = conex.getConnection().prepareStatement(
+                "UPDATE partido SET resultadoel = ? , resultadoev = ? , jugado = ? where codPartido = ? "
+        );
+        sentencia.setInt(1, partido.getResultadoEL());
+        sentencia.setInt(2, partido.getResultadoEV());
+        sentencia.setString(3, String.valueOf(partido.isJugado()));
+        sentencia.setInt(4, partido.getCodpartido());
         
+        sentencia.executeUpdate();
+        sentencia.close();
+
+        conex.desconectar();
+    }
     //borrar partido mediante su codigo
     public static  void borrarPartido(int codPartido) throws Exception{
     
