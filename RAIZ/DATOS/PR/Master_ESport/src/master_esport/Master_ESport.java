@@ -1,5 +1,8 @@
 
 package master_esport;
+import PARSES.clasificacionParse;
+import PARSES.todasJornadasParse;
+import PARSES.ultimaJornadaParse;
 import UML.*;
 import UML_DB.*;
 import Views.*;
@@ -21,12 +24,11 @@ public class Master_ESport{
     
     
     public static void main(String[] args) {
-            //crearCalendario();
             Login login = new Login();
             login.setVisible(true);
     }
     
-    public static void crearCalendario(){
+    public static void crearCalendario(String fecha){
          try {
             ArrayList nombresEquipos = new <String> ArrayList();
             ArrayList equipos = EquipoDB.listaEquipo();
@@ -35,7 +37,7 @@ public class Master_ESport{
                 Equipo e = (Equipo) equipos.get(i);
                 nombresEquipos.add(e.getNombre());
             }
-            new Calendario(nombresEquipos, crearFecha("2018/12/13"));
+            new Calendario(nombresEquipos, crearFecha(fecha));
 
         } catch (Exception ex) {
             Logger.getLogger(Master_ESport.class.getName()).log(Level.SEVERE, null, ex);
@@ -52,6 +54,11 @@ public class Master_ESport{
             Logger.getLogger(Master_ESport.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    public static String cambiarFormato(String fecha){
+            fecha = fecha.replace("-", "/");
+            return fecha;
     }
     
     public static java.sql.Date sumarDias(java.sql.Date fechaI, ArrayList equipos){
@@ -73,6 +80,16 @@ public class Master_ESport{
             Logger.getLogger(Master_ESport.class.getName()).log(Level.SEVERE, null, ex);
         }
         return jornada;
+    }
+    
+    public static void cargarParses(){
+        try {
+            clasificacionParse.main();
+            todasJornadasParse.main();
+            ultimaJornadaParse.main();
+        } catch (Exception ex) {
+            Logger.getLogger(Master_ESport.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static void insertarPartido(Jornada jornada, java.sql.Date fecha, String equipoLocalNombre, String equipoVisitanteNombre){
