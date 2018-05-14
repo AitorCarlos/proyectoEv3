@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Views.Segundarios;
+package Views.Secundarios;
 
 import UML.Usuario;
 import Views.Consultas.ConsultarJornadaPanel;
@@ -35,7 +35,7 @@ private Usuario usuario;
         PInterfazAltas.repaint();
     }
 //Visualizacion de paneles  
-     public void CrearEquipoPanel(){
+     public void CrearEquipoPanel() throws Exception{
     
         CrearEquiposPanel c1 = new CrearEquiposPanel();
         c1.setSize(991, 578);
@@ -180,8 +180,12 @@ private Usuario usuario;
 
     private void BCrearEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCrearEquipoActionPerformed
 
-//LLamar a la clase        
+    try {
+        //LLamar a la clase
         CrearEquipoPanel();
+    } catch (Exception ex) {
+        Logger.getLogger(CrearPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
     }//GEN-LAST:event_BCrearEquipoActionPerformed
 
     private void BCrearJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCrearJugadorActionPerformed

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package UML_DB;
 
 import UML.*;
@@ -13,10 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import static javax.swing.JOptionPane.showMessageDialog;
 
-/**
- *
- * @author alex
- */
 public class DuennoDB {
     
     
@@ -26,8 +17,8 @@ public class DuennoDB {
        DbConnection conex = new DbConnection();
 
         Statement sentencia = conex.getConnection().createStatement();
-        sentencia.executeUpdate("INSERT INTO usuarios (nickname, contrasenna, permiso) VALUES ('"+duenno.getNickname()+"', '"+duenno.getContrasenna()+"', '"+duenno.getPermiso()+"')");
-        sentencia.executeUpdate("INSERT INTO duenno (nombre, apellido, usuarios_codusuario) VALUES ('"+duenno.getNombre()+"','"+duenno.getApellido()+" ', (select codusuario from usuarios where nickname = '"+duenno.getNickname()+"')");
+        sentencia.executeUpdate("INSERT INTO usuarios (nickname, nombre, apellido, contrasenna, permiso) VALUES ('"+duenno.getNickname()+"', '"+duenno.getNombre()+"','"+duenno.getApellido()+"', '"+duenno.getContrasenna()+"', '"+duenno.getPermiso()+"')");
+        sentencia.executeUpdate("INSERT INTO duenno (codduenno,usuarios_codusuario) VALUES ((select codusuario from usuarios where nickname = '"+duenno.getNickname()+"'),(select codusuario from usuarios where nickname = '"+duenno.getNickname()+"'))");
         sentencia.close();
 
         conex.desconectar();
@@ -40,13 +31,16 @@ public class DuennoDB {
         Duenno duenno = null;
        DbConnection conex = new DbConnection();
    
-        PreparedStatement consulta = conex.getConnection().prepareStatement("select codduenno from usuarios, duenno where usuarios.codusuario = Duenno.Usuarios_Codusuario and usuarios.nickname= ? ");
+        PreparedStatement consulta = conex.getConnection().prepareStatement("select * from usuarios, duenno where usuarios.codusuario = Duenno.Usuarios_Codusuario and usuarios.nickname= ? ");
         consulta.setString(1, nombre);
         ResultSet res = consulta.executeQuery();
 
         if(res.next()){
             duenno = new Duenno();
             duenno.setCodusuario(Integer.parseInt(res.getString("codduenno")));
+            duenno.setNickname(res.getString("nickname"));
+            duenno.setNombre(res.getString("nombre"));
+            duenno.setApellido(res.getString("apellido"));
         }
         else
             throw new Exception ("Dueño no encontrada");
@@ -66,19 +60,16 @@ public class DuennoDB {
         Duenno duenno = null;
        DbConnection conex = new DbConnection();
    
-        PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM duenno where codduenno = ? ");
+        PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT codduenno FROM duenno where codduenno = ? ");
         consulta.setInt(1, codduenno);
         ResultSet res = consulta.executeQuery();
 
-        if(res.next()){
+        while(res.next()){
             
             duenno = new Duenno();
             duenno.setCodusuario(Integer.parseInt(res.getString("codduenno")));
             
         }
-        else
-            throw new Exception ("Dueño no encontrada");
-       
 
         res.close();
         consulta.close();
@@ -86,7 +77,6 @@ public class DuennoDB {
  
         return duenno;
     }
-    
     
     //Lista de los dueños que hay registrados
     public ArrayList <Duenno> listaDuenno() throws Exception{

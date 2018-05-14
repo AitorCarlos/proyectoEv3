@@ -2,10 +2,13 @@
 package Views.Peticiones;
 
 import UML.Duenno;
+import UML.Equipo;
+import UML.Jugador;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import static javax.swing.JOptionPane.showMessageDialog;
 import master_esport.Master_ESport;
 
@@ -14,60 +17,58 @@ public class Peticiones extends javax.swing.JPanel {
     
     public Peticiones() {
         initComponents();
-        listaPeticionDuenno();
+        listaPeticiones();
+        
+        
     }
     
-    public static DefaultListModel verPeticioDuenno(){
-        
-        DefaultListModel list = new DefaultListModel();
-        
+    public void listaPeticiones(){
+    
         try {
-                                 
-            ArrayList <Duenno> d = Master_ESport.verPDuennos();
             
-            for(int x = 0; x < d.size(); x++){
-                
-                list.addElement("Nombre: "+d.get(x).getNombre() +".  Permiso: "+d.get(x).getPermiso()+".  Tipo: "+Master_ESport.verTipo());                                
-            }
+            Master_ESport.verPeticionDuennos();
+            Master_ESport.verPeticionEquipos();
+            Master_ESport.verPeticionJugadores();
+            
+            jpl.setModel(Master_ESport.list);
 
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Peticiones.class.getName()).log(Level.SEVERE, null, ex);
         }
-        catch(Exception e){}
-        
-        return list;
-    }
-    
-    public void listaPeticionDuenno(){
-    
-        jpl.setModel(verPeticioDuenno());
     }
     
     public void aceptarPeticionDuenno(int r){
     
         try {
             
-            ArrayList <Duenno> d = Master_ESport.verPDuennos();
+            ArrayList <Duenno> d = Master_ESport.verPeticionDuenno();
             Master_ESport.anadirDuenno(d.get(r));
             Master_ESport.borrarPeticion(d.get(r).getNickname());
             
+            Master_ESport.list.remove(r);
+            
+            showMessageDialog(this, "Peticion aceptada");
+            
         }
         catch (ArrayIndexOutOfBoundsException e){
         
             showMessageDialog(this, "Seleccione una peticion por favor");
         }
         catch (Exception e) {
-            
-            showMessageDialog(this, e.getMessage());
         }
-        
-        listaPeticionDuenno();
     }
     
     public void denegarPeticionDuenno(int r){
-    
+        
         try {
             
-            ArrayList <Duenno> d = Master_ESport.verPDuennos();
+            ArrayList <Duenno> d = Master_ESport.verPeticionDuenno();
             Master_ESport.borrarPeticion(d.get(r).getNickname());
+            
+            Master_ESport.list.remove(r);
+            
+            showMessageDialog(this, "Peticion denegada");
             
         }
         catch (ArrayIndexOutOfBoundsException e){
@@ -75,12 +76,96 @@ public class Peticiones extends javax.swing.JPanel {
             showMessageDialog(this, "Seleccione una peticion por favor");
         }
         catch (Exception e) {
-            
-            showMessageDialog(this, e.getMessage());
         }
-        
-        listaPeticionDuenno();
+
     }
+    
+    public void aceptarPeticionEquipo(int r){
+        
+        try {
+                         
+            ArrayList <Equipo> d = Master_ESport.verPeticionEquipo();
+            
+            Master_ESport.anadirEquipo(d.get(r));
+            Master_ESport.borrarPeticionN(d.get(r).getNombre());
+            
+            Master_ESport.list.remove(r);
+            
+            showMessageDialog(this, "Peticion aceptada");
+            
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+        
+            showMessageDialog(this, "Seleccione una peticion por favor");
+        }
+        catch (Exception e) {
+        }
+    }
+    
+    public void denegarPeticionEquipo(int r){
+    
+        try {
+            
+            ArrayList <Equipo> d = Master_ESport.verPeticionEquipo();
+            Master_ESport.borrarPeticionN(d.get(r).getNombre());
+            
+            Master_ESport.list.remove(r);
+            
+            showMessageDialog(this, "Peticion denegada");
+            
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+        
+            showMessageDialog(this, "Seleccione una peticion por favor");
+        }
+        catch (Exception e) {
+        }
+
+    }
+    
+    public void aceptarPeticionJugador(int r){
+        
+        try {
+                         
+            ArrayList <Jugador> d = Master_ESport.verPeticionJugador();
+            
+            Master_ESport.anadirJugador(d.get(r));
+            Master_ESport.borrarPeticion(d.get(r).getNombre());
+            
+            Master_ESport.list.remove(r);
+            
+            showMessageDialog(this, "Peticion aceptada");
+            
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+        
+            showMessageDialog(this, "Seleccione una peticion por favor");
+        }
+        catch (Exception e) {
+        }
+    }
+    
+    public void denegarPeticionJugador(int r){
+    
+        try {
+            
+            ArrayList <Jugador> d = Master_ESport.verPeticionJugador();
+            Master_ESport.borrarPeticion(d.get(r).getNombre());
+            
+            Master_ESport.list.remove(r);
+            
+            showMessageDialog(this, "Peticion denegada");
+            
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+        
+            showMessageDialog(this, "Seleccione una peticion por favor");
+        }
+        catch (Exception e) {
+        }
+
+    }
+    
 
             
             /**
@@ -94,12 +179,12 @@ public class Peticiones extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jp = new javax.swing.JScrollPane();
+        jDuenno = new javax.swing.JScrollPane();
         jpl = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        jp.setViewportView(jpl);
+        jDuenno.setViewportView(jpl);
 
         jButton1.setForeground(new java.awt.Color(51, 255, 51));
         jButton1.setText("✔");
@@ -121,16 +206,16 @@ public class Peticiones extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jp, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(162, 162, 162))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jDuenno, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +225,7 @@ public class Peticiones extends javax.swing.JPanel {
                     .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(jp, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDuenno, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -148,18 +233,22 @@ public class Peticiones extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         aceptarPeticionDuenno(jpl.getSelectedIndex());
+        aceptarPeticionEquipo(jpl.getSelectedIndex());
+        aceptarPeticionJugador(jpl.getSelectedIndex());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         denegarPeticionDuenno(jpl.getSelectedIndex());
+        denegarPeticionEquipo(jpl.getSelectedIndex());
+        denegarPeticionJugador(jpl.getSelectedIndex());
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JScrollPane jp;
+    private javax.swing.JScrollPane jDuenno;
     private javax.swing.JList<String> jpl;
     // End of variables declaration//GEN-END:variables
 }

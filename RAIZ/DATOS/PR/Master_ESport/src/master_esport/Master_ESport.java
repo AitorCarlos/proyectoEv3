@@ -8,12 +8,17 @@ import java.text.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 
 public class Master_ESport{
     
-    static Duenno d1 = new Duenno();
+    public static DefaultListModel list;
+    
     static DuennoDB d_DB;
+    static EquipoDB e_DB;
+    static JugadorDB j_DB;
     static PeticionDB p_DB;
+    
     
     public static void main(String[] args) {
             //crearCalendario();
@@ -99,25 +104,27 @@ public class Master_ESport{
     
         p_DB = new PeticionDB();
         
-        d1.setNickname(nickname);
-        d1.setNombre(nombre);
-        d1.setApellido(apellido);
-        d1.setContrasenna(contrasena);
-        d1.setPermiso(permiso);
+        Duenno d2 = new Duenno();
         
-        p_DB.peticionDuenno(d1, tipo);
+        d2.setNickname(nickname);
+        d2.setNombre(nombre);
+        d2.setApellido(apellido);
+        d2.setContrasenna(contrasena);
+        d2.setPermiso(permiso);
+        
+        p_DB.peticionDuenno(d2, tipo);
     }
     //Ver peticion dueño
-    public static Duenno verPeticionDuenno() throws Exception{
+ public static ArrayList verPeticionDuenno() throws Exception{
     
         p_DB = new PeticionDB();
         
-        return p_DB.consultarDuenno();
+        return p_DB.listaPetiDuenno();
     }
     //Ver que tipo de peticion se ha realizado
-    public static String verTipo(){
+    public static String verTipoDuenno(){
         
-        return PeticionDB.tipo;
+        return PeticionDB.tipoDuenno;
     }
     //Borrar una peticion por su nickname
     public static void borrarPeticion(String nickname) throws Exception{
@@ -125,11 +132,24 @@ public class Master_ESport{
         p_DB.borrarPeticionDJ(nickname);
     }
     //Ver todas las peticiones de dueños que hay
-    public static ArrayList verPeticionDuennos() throws Exception{
+    public static void verPeticionDuennos() throws Exception{
     
         p_DB = new PeticionDB();
         
-        return p_DB.listaPetiDuenno();
+        list = new DefaultListModel();
+        
+        try {
+                                 
+            ArrayList <Duenno> d = p_DB.listaPetiDuenno();
+            
+            for(int x = 0; x < d.size(); x++){
+                
+                list.addElement("Nombre: "+d.get(x).getNombre() +" ,  Permiso: "+d.get(x).getPermiso()+" ,  Tipo: "+Master_ESport.verTipoDuenno());                                
+            }
+
+        }
+        catch(Exception e){}
+
     }
     //Aceptar peticion de dueño y añadirlo como dueño en la base de datos
     public static void anadirDuenno(Duenno duenno) throws Exception{
@@ -137,5 +157,101 @@ public class Master_ESport{
         d_DB = new DuennoDB();
 
         d_DB.registrarDuenno(duenno);
+    }
+    
+    //Crear peticion equipo
+    public static void peticionEquipo(Equipo equipo, Duenno duenno, String tipo) throws Exception{
+    
+        p_DB = new PeticionDB();
+        
+        p_DB.peticionEquipo(equipo, duenno, tipo);
+    }
+    //Ver peticion equipo
+    public static ArrayList verPeticionEquipo() throws Exception{
+    
+        p_DB = new PeticionDB();
+        
+        return p_DB.listaPetiEquipo();
+    }
+    //Ver que tipo de peticion se ha realizado
+    public static String verTipoEquipo(){
+        
+        return PeticionDB.tipoEquipo;
+    }
+    //Borrar una peticion por nombre
+    public static void borrarPeticionN(String nombre) throws Exception{
+    
+        p_DB.borrarPeticionE(nombre);
+    }
+    //Ver todas las peticiones de equipo que hay
+    public static void verPeticionEquipos() throws Exception{
+        
+        p_DB = new PeticionDB();
+    
+        try {
+                                 
+            ArrayList <Equipo> d = p_DB.listaPetiEquipo();
+            
+            for(int x = 0; x < d.size(); x++){
+                
+                list.addElement("Nombre: "+d.get(x).getNombre()+" ,  Dueño: "+d.get(x).getDuenno().getNickname() +" ,  Tipo: "+Master_ESport.verTipoEquipo());                                
+            }
+
+        }
+        catch(Exception e){}
+               
+    }
+    //Aceptar peticion de equipo y añadirlo como equipo en la base de datos
+    public static void anadirEquipo(Equipo equipo) throws Exception{
+    
+        e_DB = new EquipoDB();
+        
+        Duenno d1 = equipo.getDuenno();
+        
+        e_DB.registrarEquipo(equipo, d1);
+    }
+    
+    //Crear peticion jugador
+    public static void peticionJugador(Jugador jugador, String tipo) throws Exception{
+    
+        p_DB = new PeticionDB();
+        
+        p_DB.peticionJugador(jugador, tipo);
+    }
+    //Ver peticion equipo
+    public static ArrayList verPeticionJugador() throws Exception{
+    
+        p_DB = new PeticionDB();
+        
+        return p_DB.listaPetiJugador();
+    }
+    //Ver que tipo de peticion se ha realizado
+    public static String verTipoJugador(){
+        
+        return PeticionDB.tipoJugador;
+    }
+    //Ver todas las peticiones de jugadores que hay
+    public static void verPeticionJugadores() throws Exception{
+        
+        p_DB = new PeticionDB();
+    
+        try {
+                                 
+            ArrayList <Jugador> d = p_DB.listaPetiJugador();
+            
+            Equipo equipo = new Equipo();//necesito el equipo
+            
+            for(int x = 0; x < d.size(); x++){
+                
+                list.addElement("Nombre: "+d.get(x).getNombre()+" ,  Tipo: "+Master_ESport.verTipoJugador());                                
+            }
+
+        }
+        catch(Exception e){}
+    }
+    //Aceptar peticion de jugador y añadirlo a la base de datos
+    public static void anadirJugador(Jugador jugador) throws Exception{
+        
+        JugadorDB.registrarJugador(jugador);
     }
 }

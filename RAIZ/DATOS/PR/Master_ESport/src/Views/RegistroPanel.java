@@ -140,6 +140,19 @@ public class RegistroPanel extends javax.swing.JPanel {
                 String passText = new String(txContrasena.getPassword());
                 Master_ESport.peticionDuenno(txNickname.getText(), txNombre.getText(), txApellido.getText(), passText, permiso(), "duenno");
                 
+                showMessageDialog(this, "Peticion de dueño realizada, espera a que un administrador la acepte");
+                
+                txNickname.setText(null); txNombre.setText(null); txApellido.setText(null); txContrasena.setText(null); jcDuenno.setSelected(false);
+                
+            }
+            else{
+            
+                String passText = new String(txContrasena.getPassword());
+                Master_ESport.crearMiembro(txNickname.getText(), txNombre.getText(), txApellido.getText(), passText, permiso());
+                
+                showMessageDialog(this, "Miembro creado");
+                
+                txNickname.setText(null); txNombre.setText(null); txApellido.setText(null); txContrasena.setText(null);
             }
         }
         catch(Exception e){

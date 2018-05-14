@@ -4,7 +4,7 @@ package Views;
 import UML.Miembro;
 import UML.Usuario;
 import UML_DB.MiembroDB;
-import Views.Segundarios.CrearPanel;
+import Views.Secundarios.CrearPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.io.File;
