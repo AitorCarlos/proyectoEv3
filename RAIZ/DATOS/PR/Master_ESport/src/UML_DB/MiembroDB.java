@@ -6,9 +6,21 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Eqdaw03
+ */
+
+/**
+ * Clase miembrodb
+ * Esta clase nos sirve para hacer un CRUD de miembro en la base de datos.
+ */
+
 public class MiembroDB {
     
-    //Resgitrar un Miembro
+    /**
+     * Esta función nos permite insertar un miembro en la base de datos
+     */
     public static void registrarUsuario(Miembro miembro) throws Exception{
 
        DbConnection conex = new DbConnection();
@@ -21,7 +33,9 @@ public class MiembroDB {
     }
     
     
-    //Buscar un Miembro mediante su nombre
+    /**
+     * Esta función nos permite buscar un miembro mediante su nombre en la base de datos y nos devuelve un objeto miembro
+     */
     public static Miembro consultarMiembroNom(String nombre) throws Exception{
         
         Miembro miembro = null;
@@ -51,7 +65,9 @@ public class MiembroDB {
     }
     
     
-    //Buscar un miembro mediante su codigo
+    /**
+     * Esta función nos permite buscar un miembro mediante su código en la base de datos y nos devuelve un objeto miembro
+     */
     public static Miembro consultarMiembroCod(int codMiembro) throws Exception{
         
         Miembro miembro = null;
@@ -80,7 +96,9 @@ public class MiembroDB {
     }
     
     
-    //Lista de los miembro que hay registrados
+    /**
+     * Esta función nos permite buscar todos los miembros que hay en la base de datos y nos devuelve un arraylist
+     */
     public static ArrayList <Miembro> listaMiembro() throws Exception{
         
         ArrayList <Miembro> listaMiembro = new ArrayList();
@@ -107,7 +125,9 @@ public class MiembroDB {
         return listaMiembro;
     }
     
-    //Borrar miembro mediante su codigo
+    /**
+     * Esta función nos permite borrar un miembro de la base de datos madiante su código
+     */
     public static void borrarMiembro(int codMiembro) throws Exception{
     
        DbConnection conex = new DbConnection();

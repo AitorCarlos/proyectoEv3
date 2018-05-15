@@ -8,10 +8,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import static javax.swing.JOptionPane.showMessageDialog;
 
+/**
+ *
+ * @author Eqdaw03
+ */
+
+/**
+ * Clase duennodb
+ * Esta clase nos sirve para hacer un CRUD de dueño en la base de datos.
+ */
+
 public class DuennoDB {
     
     
-    //Resgitrar un dueño
+    /**
+     * Esta función nos permite insertar un dueño en la base de datos
+     */
     public void registrarDuenno(Duenno duenno) throws Exception{
 
        DbConnection conex = new DbConnection();
@@ -25,7 +37,9 @@ public class DuennoDB {
     }
     
     
-    //Buscar un dueño mediante su nombre
+    /**
+     * Esta función nos permite buscar un dueño en la base de datos mediante su nickname
+     */
     public static Duenno consultarDuennoNickName(String nombre) throws Exception{
         
         Duenno duenno = null;
@@ -54,7 +68,9 @@ public class DuennoDB {
     }
     
     
-    //Buscar un dueño mediante su codigo
+    /**
+     * Esta función nos permite buscar un dueño en la base de datos mediante su codigo y nos devuelve un objeto duenno
+     */
     public static Duenno consultarDuennoCod(int codduenno) throws Exception{
         
         Duenno duenno = null;
@@ -78,7 +94,9 @@ public class DuennoDB {
         return duenno;
     }
     
-    //Lista de los dueños que hay registrados
+    /**
+     * Esta función nos permite buscar todos los dueños que hay en la base de datos y nos devuelve un arraylist
+     */
     public ArrayList <Duenno> listaDuenno() throws Exception{
         
         ArrayList <Duenno> listaDuenno = new ArrayList();
@@ -104,7 +122,9 @@ public class DuennoDB {
         return listaDuenno;
     }
     
-    //Borrar dueño mediante su codigo
+    /**
+     * Esta función nos permite borrar un dueño mediante su codigo
+     */
     public void borrarDuenno(int codDuenno) throws Exception{
     
        DbConnection conex = new DbConnection();
@@ -115,7 +135,9 @@ public class DuennoDB {
         conex.desconectar();
     }
     
-    //Modificar el codigo_codequipo en el dueño, asignarle un equipo al dueño
+    /**
+     * Esta función nos permite asignarme un equipo a un dueño
+     */
     public void modificarDuennoCodEquipo(Equipo equipo, Duenno duenno) throws Exception{
 
        DbConnection conex = new DbConnection();

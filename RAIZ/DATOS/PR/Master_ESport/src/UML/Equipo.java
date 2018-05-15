@@ -1,16 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package UML;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author alex
+ * @author Eqdaw03
  */
+
+/**
+ * Clase equipo
+ * Esta clase nos sirve para crear los equipos.
+ */
+
 public class Equipo {
     
     private Integer codequipo;
@@ -79,10 +80,18 @@ public class Equipo {
         this.puntosClasificacion = puntosClasificacion;
     }
 
+    /**
+     * Devuelve los datos de los equipos con su clasificación
+     */
+    
     @Override
     public String toString() {
         return "Equipo{" + "codequipo=" + codequipo + ", nombre=" + nombre + ", puntosClasificacion=" + puntosClasificacion + ", duenno=" + duenno + ", jugador=" + jugador + '}';
     }
+    
+    /**
+     * Devuelve los puntos de la clasificación
+     */
     
     public String toStringClasificacion() {
         return  nombre + " - " + puntosClasificacion + "puntos";

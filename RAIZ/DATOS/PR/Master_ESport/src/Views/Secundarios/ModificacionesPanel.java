@@ -10,6 +10,8 @@ import UML_DB.JugadorDB;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javax.swing.JOptionPane.showConfirmDialog;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 public class ModificacionesPanel extends javax.swing.JPanel {
 
@@ -323,7 +325,16 @@ public class ModificacionesPanel extends javax.swing.JPanel {
 
     private void jlEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jlEquipoActionPerformed
         try {
-            EquipoDB.borrarEquipo(EquipoDB.consultarEquipoNom(jlNombreEquipo.getText()).getCodequipo());
+            
+            if(showConfirmDialog(this, "¿Seguro que quieres eliminar tú equipo?")==0){
+            
+                Equipo e1 = EquipoDB.consultarEquipoNom(jlNombreEquipo.getText());
+                
+                JugadorDB.quitarJugadorEquipo(e1);
+                EquipoDB.borrarEquipo(e1.getCodequipo());
+                showMessageDialog(this, "Equipo eliminado");
+            }
+
         } catch (Exception ex) {
             Logger.getLogger(ModificacionesPanel.class.getName()).log(Level.SEVERE, null, ex);
         }

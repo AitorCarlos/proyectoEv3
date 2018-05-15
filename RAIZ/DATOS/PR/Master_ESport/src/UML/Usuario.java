@@ -1,5 +1,14 @@
-
 package UML;
+
+/**
+ *
+ * @author Eqdaw03
+ */
+
+/**
+ * Clase usuario
+ * Esta clase es el padre de las clases admin y miembro.
+ */
 
 public class Usuario {
     

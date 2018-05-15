@@ -1,16 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package UML;
 
 import java.util.Date;
 
 /**
  *
- * @author alex
+ * @author Eqdaw03
  */
+
+/**
+ * Clase partido
+ * Esta clase nos sirve para crear un partido.
+ */
+
 public class Partido {
     
     private Integer codpartido;
@@ -135,8 +136,5 @@ public class Partido {
     public void setJornada(Jornada jornada) {
         this.jornada = jornada;
     }
-    
-    
-    
     
 }
