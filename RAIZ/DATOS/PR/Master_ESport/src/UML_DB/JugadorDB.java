@@ -338,6 +338,9 @@ public  class JugadorDB {
         return jugadores;
     }
     
+    /**
+     * Esta función nos permite eliminar un jugador de su equipo y poner su sueldo a 0
+     */
     public static void quitarJugadorEquipo(Equipo equipo) throws Exception{
 
        DbConnection conex = new DbConnection();
