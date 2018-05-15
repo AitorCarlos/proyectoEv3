@@ -32,7 +32,7 @@ public class ultimaJornadaParse {
     public static void main(String[] args) {
         String nombre_archivo = "UltimaJornada";
         
-        //CREAR ARRAYLIST PARA DATOS
+        /**CREAR ARRAYLIST PARA DATOS*/
         ArrayList datosJornada = new ArrayList();
             ArrayList codigo = new ArrayList();
             ArrayList fechaI = new ArrayList();
@@ -48,8 +48,7 @@ public class ultimaJornadaParse {
         }
                 
         
-                //REPETITIVAS PARA RELLENAR LOS ARRAYLIST CON DATOS DE LA BD
-                
+        /**REPETITIVAS PARA RELLENAR LOS ARRAYLIST CON DATOS DE LA BD*/
                 Jornada ultimaJornada = null;
         for (int j = 0; j < ListaJornadas.size(); j++) {
             Jornada jornadaObj = (Jornada) ListaJornadas.get(j);
@@ -59,7 +58,7 @@ public class ultimaJornadaParse {
                 }
             }
         }
-        //LLAMAR A FUNCION QUE CREA EL FICHERO PASANDOLE LOS ARRAYLIST
+        /**LLAMAR A FUNCION QUE CREA EL FICHERO PASANDOLE LOS ARRAYLIST*/
         if (ultimaJornada==null) {
             try {
                 generateVacio(nombre_archivo);
@@ -74,19 +73,19 @@ public class ultimaJornadaParse {
     }
 
     public static void generate(Jornada ultimaJornada, String name) throws Exception{
-            //CREAR FICHERO XML VERSION 1.0
+            /**CREAR FICHERO XML VERSION 1.0*/
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             DOMImplementation implementation = builder.getDOMImplementation();
             Document document = implementation.createDocument(null, name, null);
             document.setXmlVersion("1.0");
             
-            //NODO RAIZ
+            /**NODO RAIZ*/
             Element raiz = document.getDocumentElement();
-            //REPETITIVA PARA LAS NUMEROSAS JORNADAS
+            /**REPETITIVA PARA LAS NUMEROSAS JORNADAS*/
                 Jornada jornada = ultimaJornada;
                 Element Jornada = document.createElement("Jornada"); 
-                //ELEMENTOS
+                /**ELEMENTOS*/
                 Element datosJornada = document.createElement("datosJornada"); 
                 Element codigoNode = document.createElement("codigo");
                 Text codigoValue = document.createTextNode(String.valueOf(jornada.getCodJornada()));
@@ -101,7 +100,7 @@ public class ultimaJornadaParse {
                 fechaFNode.appendChild(fechaFValue);
                 
                 Element partidos = document.createElement("partidos"); 
-                //REPETITIVA CON LOS NUMEROSOS PARTIDOS DENTRO DE CADA JORNADA
+                /**REPETITIVA CON LOS NUMEROSOS PARTIDOS DENTRO DE CADA JORNADA*/
                     for(int j=0; j<jornada.getPartido().size();j++){
                         Partido partidoObj = jornada.getPartido().get(j);
                         
@@ -130,7 +129,7 @@ public class ultimaJornadaParse {
                         Element resultadoVNode = document.createElement("resultadoV"); 
                         Text resultadoVValue = document.createTextNode(String.valueOf(partidoObj.getResultadoEV()));                
                         resultadoVNode.appendChild(resultadoVValue);
-                        //ASIGNAR ESTRUCTURA
+                        /**ASIGNAR ESTRUCTURA*/
                         partido.appendChild(codigoPNode);
                         partido.appendChild(fechaPNode);
                         partido.appendChild(nombreLNode);
@@ -146,13 +145,13 @@ public class ultimaJornadaParse {
                 
                 Jornada.appendChild(datosJornada);
                 Jornada.appendChild(partidos);
-                //ASIGNAR RAMAS A RAIZ
-                raiz.appendChild(Jornada); //pegamos el elemento a la raiz "Documento"
+                /**ASIGNAR RAMAS A RAIZ*/
+                raiz.appendChild(Jornada); /**Pegamos el elemento a la raiz "Documento"*/
             
                             
-            //GENERAR XML
+            /**GENERAR XML*/
             Source source = new DOMSource(document);
-            //Indicamos donde lo queremos almacenar
+            /**Indicamos donde lo queremos almacenar*/
             name = "ultimaJornada";
             Result result = new StreamResult(new java.io.File("../../LM/"+name+".xml")); //nombre del archivo
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
@@ -162,21 +161,20 @@ public class ultimaJornadaParse {
     
     
         public static void generateVacio(String name) throws Exception{
-            //CREAR FICHERO XML VERSION 1.0
+            /**CREAR FICHERO XML VERSION 1.0*/
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             DOMImplementation implementation = builder.getDOMImplementation();
             Document document = implementation.createDocument(null, name, null);
             document.setXmlVersion("1.0");
           
-            //GENERAR XML
+            /**GENERAR XML*/
             Source source = new DOMSource(document);
-            //Indicamos donde lo queremos almacenar
+            /**Indicamos donde lo queremos almacenar*/
             name = "ultimaJornada";
-            Result result = new StreamResult(new java.io.File("../../LM/"+name+".xml")); //nombre del archivo
+            Result result = new StreamResult(new java.io.File("../../LM/"+name+".xml")); /**Nombre del archivo*/
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
             transformer.transform(source, result);
-        
     }
     
 }

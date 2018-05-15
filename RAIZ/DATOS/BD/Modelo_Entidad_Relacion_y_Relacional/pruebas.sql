@@ -33,7 +33,7 @@ insert into usuarios (nickname, contrasenna, permiso) values ('manuxx',123,'duen
 insert into usuarios (nickname, contrasenna, permiso) values ('alexuu',123,'duenno');
 insert into usuarios (nickname, contrasenna, permiso) values ('rafuu',123,'duenno');
 
-insert into duenno (usuarios_codusuario) values (1);
+insert into duenno (codDuenno, usuarios_codusuario) values (1,1);
 insert into duenno (usuarios_codusuario) values (2);
 insert into duenno (usuarios_codusuario) values (3);
 insert into duenno (nombre, apellido, usuarios_codusuario) values ('manu','ela',5);
