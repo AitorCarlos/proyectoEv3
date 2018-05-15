@@ -16,16 +16,17 @@ import javax.swing.*;
 import java.awt.Desktop;
 import java.awt.event.KeyEvent;
 import java.net.URI;        
-import java.util.logging.*;
 import javax.swing.JOptionPane;
+import org.edisoncor.gui.varios.TitleBar;
 
 public class Login extends javax.swing.JFrame {
-                
+
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
         imglinkw();
         JCUsuarioInicio.requestFocus();
+        
     }
     
 //Visualizacion de paneles     
@@ -47,6 +48,7 @@ public void RegistroPanel(){
         Icon ico = new ImageIcon(ima.getImage().getScaledInstance(60, 60, 0));
         BLinkWordpress.setIcon(ico);
         BLinkWordpress.repaint();
+        
     }
     
     
@@ -68,8 +70,11 @@ public void RegistroPanel(){
         panelImage5 = new org.edisoncor.gui.panel.PanelImage();
         JRContraseñaUsuario = new jpass.JRPasswordField();
         jLabel1 = new javax.swing.JLabel();
+        Cmute = new javax.swing.JCheckBox();
+        Bmin = new javax.swing.JButton();
         PVideoLogin = new javax.swing.JLabel();
         LTitulo = new javax.swing.JLabel();
+        FramDrag = new javax.swing.JPanel();
 
         jMenu1.setText("jMenu1");
 
@@ -92,7 +97,7 @@ public void RegistroPanel(){
 
         LIconoLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo.png"))); // NOI18N
 
-        LNoEstasRegistrado.setText("¿No estas registrado? ");
+        LNoEstasRegistrado.setText("¿No estás registrado? ");
 
         BLinkWordpress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +125,7 @@ public void RegistroPanel(){
         PPanelRegistro.setLayout(PPanelRegistroLayout);
         PPanelRegistroLayout.setHorizontalGroup(
             PPanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 340, Short.MAX_VALUE)
+            .addGap(0, 330, Short.MAX_VALUE)
         );
         PPanelRegistroLayout.setVerticalGroup(
             PPanelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +177,24 @@ public void RegistroPanel(){
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Tambien nos puedes ver en :");
+        jLabel1.setText("También nos puedes ver en :");
+
+        Cmute.setBackground(new java.awt.Color(204, 204, 204));
+        Cmute.setText("Silenciar Vídeo");
+        Cmute.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CmuteItemStateChanged(evt);
+            }
+        });
+
+        Bmin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Bmin.setForeground(new java.awt.Color(102, 102, 102));
+        Bmin.setText("-");
+        Bmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BminActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelLoginLayout = new javax.swing.GroupLayout(PanelLogin);
         PanelLogin.setLayout(PanelLoginLayout);
@@ -197,18 +219,23 @@ public void RegistroPanel(){
                 .addContainerGap()
                 .addGroup(PanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelLoginLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addGroup(PanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(Cmute))
                         .addGap(18, 18, 18)
                         .addComponent(BLinkWordpress, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLoginLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(PanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLoginLayout.createSequentialGroup()
-                                .addComponent(LIconoLogo)
-                                .addGap(37, 37, 37)
-                                .addComponent(Bexit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(PPanelRegistro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(LIconoLogo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Bmin)
+                        .addGap(2, 2, 2)
+                        .addComponent(Bexit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLoginLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(PPanelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         PanelLoginLayout.setVerticalGroup(
             PanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,7 +244,8 @@ public void RegistroPanel(){
                     .addComponent(Bexit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelLoginLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(LIconoLogo)))
+                        .addComponent(LIconoLogo))
+                    .addComponent(Bmin, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JCUsuarioInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -234,19 +262,41 @@ public void RegistroPanel(){
                 .addComponent(BRegistrarse)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PPanelRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BLinkWordpress, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelLoginLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BLinkWordpress, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelLoginLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel1)))
-                .addGap(16, 16, 16))
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(Cmute)))
+                .addGap(13, 13, 13))
         );
 
         LTitulo.setBackground(new java.awt.Color(153, 255, 255));
         LTitulo.setFont(new java.awt.Font("Tahoma", 0, 72)); // NOI18N
         LTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/generatedtext.png"))); // NOI18N
+
+        FramDrag.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                FramDragMouseDragged(evt);
+            }
+        });
+        FramDrag.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                FramDragMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout FramDragLayout = new javax.swing.GroupLayout(FramDrag);
+        FramDrag.setLayout(FramDragLayout);
+        FramDragLayout.setHorizontalGroup(
+            FramDragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        FramDragLayout.setVerticalGroup(
+            FramDragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 15, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -254,20 +304,20 @@ public void RegistroPanel(){
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PVideoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(PVideoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
-                        .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(LTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(LTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(FramDrag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addComponent(PanelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(PanelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addComponent(FramDrag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(PVideoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -336,6 +386,35 @@ public void RegistroPanel(){
         }
     }//GEN-LAST:event_JRContraseñaUsuarioKeyPressed
 
+    private void CmuteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CmuteItemStateChanged
+        // TODO add your handling code here:
+        if (Cmute.isSelected()){
+            oracleVideo.setVolume(0.0);
+        }else{
+            oracleVideo.setVolume(0.2);
+        }
+    }//GEN-LAST:event_CmuteItemStateChanged
+
+    private void BminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BminActionPerformed
+        // TODO add your handling code here:
+       this.setState (JFrame.ICONIFIED);
+       
+    }//GEN-LAST:event_BminActionPerformed
+
+    private void FramDragMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FramDragMouseDragged
+        // TODO add your handling code here:
+        
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse,y - yMouse);
+    }//GEN-LAST:event_FramDragMouseDragged
+
+    private void FramDragMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FramDragMousePressed
+        // TODO add your handling code here:
+        xMouse =evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_FramDragMousePressed
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -359,8 +438,11 @@ public void RegistroPanel(){
                 new Login().setVisible(true);
             }
         });
+        
+        
     }
     
+  
 //Crear Escena video
     private JFXPanel createScene(){
         JFXPanel jfxPanel = new JFXPanel();
@@ -374,19 +456,30 @@ public void RegistroPanel(){
                     //se añade video al jfxPanel
                     
                     jfxPanel.setScene(new Scene(new Group(new MediaView(oracleVid))));                    
-                    oracleVid.setVolume(0.7);//volumen
+                    oracleVid.setVolume(0.2);//volumen
                     oracleVid.setCycleCount(MediaPlayer.INDEFINITE);//repite video
                     oracleVid.play();//play video
+                    oracleVideo =oracleVid;
+
              }
+             
+             
         });
         return jfxPanel;
     }
 
+    
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BAcceder;
     private javax.swing.JButton BLinkWordpress;
     private javax.swing.JButton BRegistrarse;
     private javax.swing.JButton Bexit;
+    private javax.swing.JButton Bmin;
+    private javax.swing.JCheckBox Cmute;
+    private javax.swing.JPanel FramDrag;
     public static app.bolivia.swing.JCTextField JCUsuarioInicio;
     public static jpass.JRPasswordField JRContraseñaUsuario;
     private javax.swing.JLabel LIconoLogo;
