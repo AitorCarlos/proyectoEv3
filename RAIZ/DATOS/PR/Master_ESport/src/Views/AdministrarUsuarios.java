@@ -25,7 +25,7 @@ public class AdministrarUsuarios extends javax.swing.JPanel {
 
     }
     
-    
+    /**  */
     public void cargarDatos(Usuario usuario){
         TMostrarNombreUsuario.setText(usuario.getNombre());
         TMostrarApellidoUsuario.setText(usuario.getApellido());
