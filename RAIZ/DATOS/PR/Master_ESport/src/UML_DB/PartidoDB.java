@@ -11,8 +11,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import static javax.swing.JOptionPane.showMessageDialog;
 
+/**
+ *
+ * @author Eqdaw03
+ */
+
+/**
+ * Clase partidodb
+ * Esta clase nos sirve para hacer un CRUD de partido en la base de datos.
+ */
+
 public class PartidoDB {
     
+    /**
+     * Esta función nos permite insertar un partido con su jornada y sus equipos en la base de datos
+     */
     public void registrarPartido(Partido partido, Jornada jornada, Equipo visitante, Equipo local) throws Exception{
 
        DbConnection conex = new DbConnection();
@@ -25,7 +38,9 @@ public class PartidoDB {
         conex.desconectar();
     }
     
-    //buscar codigo del partido mediante su codigo
+    /**
+     * Esta función nos permite buscar el código de partido en la base de datos mediante su código y nos devuelve un objeto partido
+     */
     public static  Partido consultarCodPartido(int codpartido) throws Exception{
         
         Partido partido = null;
@@ -52,7 +67,9 @@ public class PartidoDB {
         return partido;
     }
     
-    //buscar partido con todos sus datos mediante su codigo
+    /**
+     * esta función nos permite buscar un partido con todos sus datos en la base de datos mediante su código y nos devuelve un objeto partido
+     */
     public static   Partido consultarPartidoCod(int codpartido) throws Exception{
         
         Partido partido = null;
@@ -87,7 +104,9 @@ public class PartidoDB {
         return partido;
     }
     
-    //lista de partidos con todos sus datos
+    /**
+     * Esta función nos permite buscar todos los partidos en la base de datos y nos devuelve un arraylist
+     */
     public static ArrayList <Partido> listaPartido() throws Exception{
         
         ArrayList <Partido> listaPartido = new ArrayList();
@@ -117,6 +136,9 @@ public class PartidoDB {
         return listaPartido;
     }
     
+    /**
+     * Esta función nos permite buscar todos los partidos por jornada en la base de datos y nos devuelve un arraylist
+     */
     public static ArrayList <Partido> listaPartidoPorJornada(int codJornada) throws Exception{
         
         ArrayList <Partido> listaPartido = new ArrayList();
@@ -147,6 +169,9 @@ public class PartidoDB {
         return listaPartido;
     }
     
+    /**
+     * Esta función nos permite buscar la clasificación de los equipos y nos devuelve un arraylist
+     */
     public static ArrayList <Equipo> clasificacionEquipos() throws Exception{
         
         ArrayList <Equipo> listaEquipos = new ArrayList();
@@ -169,6 +194,9 @@ public class PartidoDB {
         return listaEquipos;
     }
 
+    /**
+     * Esta función nos permite actulizar los partidos para poder añadir los resultados de cada equipo
+     */
     public static  void actualizarPartido(Partido partido) throws Exception{
 
        DbConnection conex = new DbConnection();
@@ -186,7 +214,9 @@ public class PartidoDB {
 
         conex.desconectar();
     }
-    //borrar partido mediante su codigo
+    /**
+     * Esta función nos permite borrar un partido mediante su código en la base de datos
+     */
     public static  void borrarPartido(int codPartido) throws Exception{
     
        DbConnection conex = new DbConnection();

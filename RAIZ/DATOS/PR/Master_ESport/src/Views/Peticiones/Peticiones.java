@@ -18,8 +18,6 @@ public class Peticiones extends javax.swing.JPanel {
     public Peticiones() {
         initComponents();
         listaPeticiones();
-        
-        
     }
     
     public void listaPeticiones(){
@@ -51,11 +49,9 @@ public class Peticiones extends javax.swing.JPanel {
             showMessageDialog(this, "Peticion aceptada");
             
         }
-        catch (ArrayIndexOutOfBoundsException e){
-        
-            showMessageDialog(this, "Seleccione una peticion por favor");
-        }
         catch (Exception e) {
+            
+            showMessageDialog(this, e.getMessage());
         }
     }
     
@@ -71,11 +67,9 @@ public class Peticiones extends javax.swing.JPanel {
             showMessageDialog(this, "Peticion denegada");
             
         }
-        catch (ArrayIndexOutOfBoundsException e){
-        
-            showMessageDialog(this, "Seleccione una peticion por favor");
-        }
         catch (Exception e) {
+            
+            showMessageDialog(this, e.getMessage());
         }
 
     }
@@ -94,11 +88,9 @@ public class Peticiones extends javax.swing.JPanel {
             showMessageDialog(this, "Peticion aceptada");
             
         }
-        catch (ArrayIndexOutOfBoundsException e){
-        
-            showMessageDialog(this, "Seleccione una peticion por favor");
-        }
         catch (Exception e) {
+            
+            showMessageDialog(this, e.getMessage());
         }
     }
     
@@ -114,11 +106,9 @@ public class Peticiones extends javax.swing.JPanel {
             showMessageDialog(this, "Peticion denegada");
             
         }
-        catch (ArrayIndexOutOfBoundsException e){
-        
-            showMessageDialog(this, "Seleccione una peticion por favor");
-        }
         catch (Exception e) {
+            
+            showMessageDialog(this, e.getMessage());
         }
 
     }
@@ -137,11 +127,9 @@ public class Peticiones extends javax.swing.JPanel {
             showMessageDialog(this, "Peticion aceptada");
             
         }
-        catch (ArrayIndexOutOfBoundsException e){
-        
-            showMessageDialog(this, "Seleccione una peticion por favor");
-        }
         catch (Exception e) {
+            
+            showMessageDialog(this, e.getMessage());
         }
     }
     
@@ -150,18 +138,16 @@ public class Peticiones extends javax.swing.JPanel {
         try {
             
             ArrayList <Jugador> d = Master_ESport.verPeticionJugador();
-            Master_ESport.borrarPeticion(d.get(r).getNombre());
+            Master_ESport.borrarPeticion(d.get(r).getNickname());
             
             Master_ESport.list.remove(r);
             
             showMessageDialog(this, "Peticion denegada");
             
         }
-        catch (ArrayIndexOutOfBoundsException e){
-        
-            showMessageDialog(this, "Seleccione una peticion por favor");
-        }
         catch (Exception e) {
+            
+            showMessageDialog(this, e.getMessage());
         }
 
     }
@@ -206,42 +192,75 @@ public class Peticiones extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(162, 162, 162))
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jDuenno, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(164, 164, 164)
+                .addComponent(jDuenno, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addContainerGap(229, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(jDuenno, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(181, 181, 181)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton2)
+                            .addComponent(jButton1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(jDuenno, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(262, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+        if(jpl.getSelectedIndex()==-1){
 
-        aceptarPeticionDuenno(jpl.getSelectedIndex());
-        aceptarPeticionEquipo(jpl.getSelectedIndex());
-        aceptarPeticionJugador(jpl.getSelectedIndex());
+            showMessageDialog(this, "Seleccione una peticion por favor");
+        }
+        else{
+            if(jpl.getSelectedValue().substring(15, 21).equals("duenno")){
+
+                aceptarPeticionDuenno(jpl.getSelectedIndex());
+            }
+            else if(jpl.getSelectedValue().substring(15, 21).equals("equipo")){
+
+                aceptarPeticionEquipo(jpl.getSelectedIndex());
+            }
+            else if(jpl.getSelectedValue().substring(15, 22).equals("jugador")){
+
+                aceptarPeticionJugador(jpl.getSelectedIndex());
+            }
+        }
+ 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       
+        if(jpl.getSelectedIndex()==-1){
 
-        denegarPeticionDuenno(jpl.getSelectedIndex());
-        denegarPeticionEquipo(jpl.getSelectedIndex());
-        denegarPeticionJugador(jpl.getSelectedIndex());
+            showMessageDialog(this, "Seleccione una peticion por favor");
+        }
+        else{
+            
+            if(jpl.getSelectedValue().substring(15, 21).equals("duenno")){
+
+                denegarPeticionDuenno(jpl.getSelectedIndex());
+            }
+            else if(jpl.getSelectedValue().substring(15, 21).equals("equipo")){
+
+                denegarPeticionEquipo(jpl.getSelectedIndex());
+            }
+            else if(jpl.getSelectedValue().substring(15, 22).equals("jugador")){
+
+                denegarPeticionJugador(jpl.getSelectedIndex());
+            }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
