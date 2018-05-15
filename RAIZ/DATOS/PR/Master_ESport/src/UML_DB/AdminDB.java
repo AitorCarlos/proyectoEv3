@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package UML_DB;
 
 import UML.Admin;
@@ -13,11 +8,19 @@ import java.util.ArrayList;
 
 /**
  *
- * @author 1GDAW03
+ * @author Eqdaw03
  */
+
+/**
+ * Clase admindb
+ * Esta clase nos sirve para hacer un CRUD de admin en la base de datos.
+ */
+
 public class AdminDB {
     
-    //Resgitrar un admin
+    /**
+     * Esta función nos permite insertar un admin en la base de datos
+     */
     public void registrarAdmin(Admin admin) throws Exception{
 
        DbConnection conex = new DbConnection();
@@ -28,9 +31,10 @@ public class AdminDB {
 
         conex.desconectar();
     }
-    
-    
-    //Buscar un admin mediante su nombre
+
+    /**
+     * Esta función nos permite buscar un admin por su nombre en la base de datos y nos lo devuelve mediante un objeto admin
+     */
     public Admin consultarAdminNom(String nombre) throws Exception{
         
         Admin admin = null;
@@ -61,9 +65,10 @@ public class AdminDB {
  
         return admin;
     }
-    
-    
-    //Buscar un admin mediante su codigo
+
+    /**
+     * Esta función nos permite buscar un admin por su codigo en la base de datos y nos lo devuelve mediante un objeto admin
+     */
     public static Admin consultarAdminCod(int codadmin) throws Exception{
         
         Admin admin = null;
@@ -85,7 +90,7 @@ public class AdminDB {
             
         }
         else
-            throw new Exception ("Dueño no encontrada");
+            throw new Exception ("Admin no encontrada");
        
 
         res.close();
@@ -96,7 +101,9 @@ public class AdminDB {
     }
     
     
-    //Lista de los admin que hay registrados
+     /**
+     * Esta función nos permite buscar todos los admins que hay en la base de datos y nos lo devuelve con un arraylist
+     */
     public ArrayList <Admin> listaAdmin() throws Exception{
         
         ArrayList <Admin> listaAdmin = new ArrayList();
@@ -125,7 +132,9 @@ public class AdminDB {
         return listaAdmin;
     }
     
-    //Borrar admin mediante su codigo
+     /**
+     * Esta función nos permite borrar un admin mediante su codigo
+     */
     public void borrarAdmin(int codAdmin) throws Exception{
     
        DbConnection conex = new DbConnection();

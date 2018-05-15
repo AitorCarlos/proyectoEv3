@@ -1,14 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package UML;
 
 /**
  *
- * @author alex
+ * @author Eqdaw03
  */
+
+/**
+ * Clase jugador
+ * Esta clase nos sirve para crear un jugador.
+ */
+
 public class Jugador {
     
     private Integer codjugador;
@@ -95,11 +96,13 @@ public class Jugador {
         this.equipo = equipo;
     }
 
+    /**
+     * Devuelve los datos del jugador
+     */
+    
     @Override
     public String toString() {
         return  "Nickname=" + nickname + "  Nombre=" + nombre + "  Apellido=" + apellido;
-    }
-    
-    
+    } 
     
 }
