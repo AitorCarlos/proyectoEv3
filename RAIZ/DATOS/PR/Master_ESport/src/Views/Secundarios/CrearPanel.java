@@ -53,12 +53,12 @@ private Usuario usuario;
             PInterfazAltas.revalidate();
             PInterfazAltas.repaint();
     }
-
+     
      //Visualizacion de paneles  
      public void ModificarJugador() throws Exception{
     
         ModificacionesPanel c1 = new ModificacionesPanel();
-        c1.cargarDatos(usuario);
+        c1.cargarDatos(usuario, this);
         c1.setSize(991, 578);
         c1.setLocation(0, 0);
         
@@ -68,7 +68,9 @@ private Usuario usuario;
         PInterfazAltas.repaint();
     }
 
-     
+    public void ActualizarModificarJugador(){
+            BModificarJugador.doClick();
+    }
      
      
      

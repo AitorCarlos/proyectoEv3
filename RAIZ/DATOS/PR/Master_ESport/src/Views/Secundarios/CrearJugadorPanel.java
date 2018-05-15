@@ -164,14 +164,16 @@ public class CrearJugadorPanel extends javax.swing.JPanel {
             }else
                 if (CEquipo.getSelectedItem().toString()=="-----") {
                     Master_ESport.peticionJugador(jugador, null, "jugador");
+                    javax.swing.JOptionPane.showMessageDialog(this, "Peticion Jugador Creada");
+                    this.paintAll(this.getGraphics());  
                 }else{
                     jugador.setSueldo(Double.parseDouble(TSueldo.getText()));
                     Equipo equipo = EquipoDB.consultarEquipoNom(CEquipo.getSelectedItem().toString());
                     jugador.setEquipo(equipo);
                     Master_ESport.peticionJugador(jugador, equipo, "jugador");
+                    this.paintAll(this.getGraphics());  
+                    javax.swing.JOptionPane.showMessageDialog(this, "Peticion Jugador Creada");
                 }
-            javax.swing.JOptionPane.showMessageDialog(this, "Peticion Jugador Creada");
-            
         } catch (Exception ex) {javax.swing.JOptionPane.showMessageDialog(this, ex.getMessage());}
     }//GEN-LAST:event_jbCrearActionPerformed
 
