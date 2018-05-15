@@ -16,10 +16,10 @@ public class DbConnection {
     
     //private String login = "eqdaw03";
     //private String password = "eqdaw03";
-    private String login = "eqdaw03";
-    private String password = "eqdaw03";
-    private String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
-    //private String url = "jdbc:oracle:thin:@10.10.10.9:1521:db12102";
+    private String login = "SCOTT";
+    private String password = "scott";
+    //private String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
+    private String url = "jdbc:oracle:thin:@10.10.10.9:1521:db12102";
     //"jdbc:oracle:thin:@SrvOracle:1521:orcl"
 
     

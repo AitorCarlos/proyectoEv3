@@ -29,7 +29,7 @@ import UML_DB.*;
 
 public class ultimaJornadaParse {
 
-    public static void main() throws Exception {
+    public static void main(String[] args) {
         String nombre_archivo = "UltimaJornada";
         
         //CREAR ARRAYLIST PARA DATOS
@@ -40,7 +40,12 @@ public class ultimaJornadaParse {
             
         ArrayList partidos = new ArrayList();
             ArrayList partido= new ArrayList();
-                ArrayList ListaJornadas = JornadaDB.listaJornada();
+                ArrayList ListaJornadas = null;
+        try {
+            ListaJornadas = JornadaDB.listaJornada();
+        } catch (Exception ex) {
+            Logger.getLogger(ultimaJornadaParse.class.getName()).log(Level.SEVERE, null, ex);
+        }
                 
         
                 //REPETITIVAS PARA RELLENAR LOS ARRAYLIST CON DATOS DE LA BD
@@ -56,14 +61,16 @@ public class ultimaJornadaParse {
         }
         //LLAMAR A FUNCION QUE CREA EL FICHERO PASANDOLE LOS ARRAYLIST
         if (ultimaJornada==null) {
-            System.out.println("Aún no se ha jugado ningún partido");
+            try {
+                generateVacio(nombre_archivo);
+            } catch (Exception ex) {
+                Logger.getLogger(ultimaJornadaParse.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }else{
             try { 
                 generate(ultimaJornada, nombre_archivo);
             } catch (Exception e) {System.out.println(e.getMessage());}
         }
-        
-
     }
 
     public static void generate(Jornada ultimaJornada, String name) throws Exception{
@@ -73,8 +80,6 @@ public class ultimaJornadaParse {
             DOMImplementation implementation = builder.getDOMImplementation();
             Document document = implementation.createDocument(null, name, null);
             document.setXmlVersion("1.0");
-            
-            
             
             //NODO RAIZ
             Element raiz = document.getDocumentElement();
@@ -154,5 +159,25 @@ public class ultimaJornadaParse {
             transformer.transform(source, result);
         
     }
+    
+    
+        public static void generateVacio(String name) throws Exception{
+            //CREAR FICHERO XML VERSION 1.0
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            DOMImplementation implementation = builder.getDOMImplementation();
+            Document document = implementation.createDocument(null, name, null);
+            document.setXmlVersion("1.0");
+          
+            //GENERAR XML
+            Source source = new DOMSource(document);
+            //Indicamos donde lo queremos almacenar
+            name = "ultimaJornada";
+            Result result = new StreamResult(new java.io.File("../../LM/"+name+".xml")); //nombre del archivo
+            Transformer transformer = TransformerFactory.newInstance().newTransformer();
+            transformer.transform(source, result);
+        
+    }
+    
 }
 

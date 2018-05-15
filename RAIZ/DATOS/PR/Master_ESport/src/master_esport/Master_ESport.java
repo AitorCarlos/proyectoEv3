@@ -84,9 +84,10 @@ public class Master_ESport{
     
     public static void cargarParses(){
         try {
-            clasificacionParse.main();
-            todasJornadasParse.main();
-            ultimaJornadaParse.main();
+            String[] args = null;
+            clasificacionParse.main(args);
+            todasJornadasParse.main(args);
+            ultimaJornadaParse.main(args);
         } catch (Exception ex) {
             Logger.getLogger(Master_ESport.class.getName()).log(Level.SEVERE, null, ex);
         }

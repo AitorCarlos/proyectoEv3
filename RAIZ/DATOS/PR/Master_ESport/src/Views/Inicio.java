@@ -61,6 +61,7 @@ public class Inicio extends javax.swing.JFrame {
         c1.setSize(991, 578);
         c1.setLocation(0, 0);
         
+        
         PInterfaz.removeAll();
         PInterfaz.add(c1, BorderLayout.CENTER);
         PInterfaz.revalidate();
