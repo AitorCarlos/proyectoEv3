@@ -8,6 +8,7 @@ import Views.Consultas.ConsultarEquipoPanel;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import master_esport.Master_ESport;
 
 public class CrearJugadorPanel extends javax.swing.JPanel {
 
@@ -158,15 +159,14 @@ public class CrearJugadorPanel extends javax.swing.JPanel {
             jugador.setApellido(TApellidos.getText());
             jugador.setNickname(TNickname.getText());
             if (CEquipo.getSelectedItem().toString()=="-----") {
-                JugadorDB.registrarJugador(jugador);
+                Master_ESport.peticionJugador(jugador, null, "jugador");
             }else{
                 jugador.setSueldo(Double.parseDouble(TSueldo.getText()));
-                Equipo equipo = new Equipo();
-                equipo.setCodequipo(EquipoDB.consultarEquipoNom(CEquipo.getSelectedItem().toString()).getCodequipo());
+                Equipo equipo = EquipoDB.consultarEquipoNom(CEquipo.getSelectedItem().toString());
                 jugador.setEquipo(equipo);
-                JugadorDB.registrarJugadorConEquipo(jugador);
+                Master_ESport.peticionJugador(jugador, equipo, "jugador");
             }
-            javax.swing.JOptionPane.showMessageDialog(this, "JugadorCreado");
+            javax.swing.JOptionPane.showMessageDialog(this, "Peticion Jugador Creada");
             
         } catch (Exception ex) {javax.swing.JOptionPane.showMessageDialog(this, ex.getMessage());}
     }//GEN-LAST:event_jbCrearActionPerformed

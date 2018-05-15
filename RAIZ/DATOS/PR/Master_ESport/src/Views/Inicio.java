@@ -7,9 +7,12 @@ import UML.Usuario;
 import Views.Consultas.*;
 import Views.Peticiones.*;
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.event.MouseEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static master_esport.Master_ESport.cargarParses;
@@ -38,14 +41,14 @@ public class Inicio extends javax.swing.JFrame {
     public void permisos(String permiso){
        switch(permiso){
            case "usuario":
-                    BInicioAltas.setVisible(false);
+                    BInicioDueño.setVisible(false);
                     BInicioAdministrador.setVisible(false);
                break;
            case "duenno":
                     BInicioAdministrador.setVisible(false);
                break;
             case "administrador":
-                    BInicioAltas.setVisible(false);
+                    BInicioDueño.setVisible(false);
                     
                break;
             default: javax.swing.JOptionPane.showMessageDialog(this, "error de usuario");
@@ -114,6 +117,20 @@ public void AdministrarUsuarios(){
     } 
    
    
+   public void ColorSeleccionado(JButton jb){
+       BInicioInicio.setForeground(Color.black);
+       BInicioConsultas.setForeground(Color.black); 
+       BInicioDueño.setForeground(Color.black); 
+       BInicioAdministrador.setForeground(Color.black); 
+       BInicioUsuario.setForeground(Color.black);
+       jb.setForeground(Color.white);
+       this.update(this.getGraphics());
+   
+   }
+   
+   
+   
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -121,7 +138,7 @@ public void AdministrarUsuarios(){
         jPanel1 = new javax.swing.JPanel();
         PanelInterfaz = new javax.swing.JPanel();
         BInicioUsuario = new javax.swing.JButton();
-        BInicioAltas = new javax.swing.JButton();
+        BInicioDueño = new javax.swing.JButton();
         BInicioConsultas = new javax.swing.JButton();
         BInicioInicio = new javax.swing.JButton();
         BExit = new javax.swing.JButton();
@@ -142,7 +159,7 @@ public void AdministrarUsuarios(){
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        PanelInterfaz.setBackground(new java.awt.Color(204, 204, 204));
+        PanelInterfaz.setBackground(new java.awt.Color(102, 0, 102));
 
         BInicioUsuario.setBackground(new java.awt.Color(255, 255, 255));
         BInicioUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -151,22 +168,32 @@ public void AdministrarUsuarios(){
         BInicioUsuario.setBorderPainted(false);
         BInicioUsuario.setFocusable(false);
         BInicioUsuario.setOpaque(false);
+        BInicioUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BInicioUsuarioMouseClicked(evt);
+            }
+        });
         BInicioUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BInicioUsuarioActionPerformed(evt);
             }
         });
 
-        BInicioAltas.setBackground(new java.awt.Color(255, 255, 255));
-        BInicioAltas.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        BInicioAltas.setText("DUEÑO");
-        BInicioAltas.setBorder(null);
-        BInicioAltas.setBorderPainted(false);
-        BInicioAltas.setFocusable(false);
-        BInicioAltas.setOpaque(false);
-        BInicioAltas.addActionListener(new java.awt.event.ActionListener() {
+        BInicioDueño.setBackground(new java.awt.Color(255, 255, 255));
+        BInicioDueño.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        BInicioDueño.setText("DUEÑO");
+        BInicioDueño.setBorder(null);
+        BInicioDueño.setBorderPainted(false);
+        BInicioDueño.setFocusable(false);
+        BInicioDueño.setOpaque(false);
+        BInicioDueño.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BInicioDueñoMouseClicked(evt);
+            }
+        });
+        BInicioDueño.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BInicioAltasActionPerformed(evt);
+                BInicioDueñoActionPerformed(evt);
             }
         });
 
@@ -177,19 +204,30 @@ public void AdministrarUsuarios(){
         BInicioConsultas.setBorderPainted(false);
         BInicioConsultas.setFocusable(false);
         BInicioConsultas.setOpaque(false);
+        BInicioConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BInicioConsultasMouseClicked(evt);
+            }
+        });
         BInicioConsultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BInicioConsultasActionPerformed(evt);
             }
         });
 
-        BInicioInicio.setBackground(new java.awt.Color(255, 255, 255));
+        BInicioInicio.setBackground(new java.awt.Color(0, 255, 204));
         BInicioInicio.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         BInicioInicio.setText("INICIO");
+        BInicioInicio.setToolTipText("");
         BInicioInicio.setBorder(null);
         BInicioInicio.setBorderPainted(false);
         BInicioInicio.setFocusable(false);
         BInicioInicio.setOpaque(false);
+        BInicioInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BInicioInicioMouseClicked(evt);
+            }
+        });
         BInicioInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BInicioInicioActionPerformed(evt);
@@ -210,6 +248,11 @@ public void AdministrarUsuarios(){
         BInicioAdministrador.setBorderPainted(false);
         BInicioAdministrador.setFocusable(false);
         BInicioAdministrador.setOpaque(false);
+        BInicioAdministrador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BInicioAdministradorMouseClicked(evt);
+            }
+        });
         BInicioAdministrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BInicioAdministradorActionPerformed(evt);
@@ -226,7 +269,7 @@ public void AdministrarUsuarios(){
                 .addGap(41, 41, 41)
                 .addComponent(BInicioConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
-                .addComponent(BInicioAltas, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BInicioDueño, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BInicioAdministrador)
                 .addGap(28, 28, 28)
@@ -239,7 +282,7 @@ public void AdministrarUsuarios(){
             .addGroup(PanelInterfazLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BInicioAltas, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BInicioDueño, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BInicioConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BInicioInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BInicioUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,13 +330,13 @@ public void AdministrarUsuarios(){
         
     }//GEN-LAST:event_BInicioConsultasActionPerformed
 
-    private void BInicioAltasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInicioAltasActionPerformed
+    private void BInicioDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInicioDueñoActionPerformed
         
 //LLamar a la clase          
         //AQUI PONER QUE NO SE VEA SI NO TIENE PERMISO DE ADMINISTRADOR
         AltaUsuarioPanel();
 
-    }//GEN-LAST:event_BInicioAltasActionPerformed
+    }//GEN-LAST:event_BInicioDueñoActionPerformed
 
     private void BInicioInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInicioInicioActionPerformed
 //LLamar a la clase     
@@ -322,6 +365,37 @@ public void AdministrarUsuarios(){
 //LLamar a la clase          
         AdministradorPanel();
     }//GEN-LAST:event_BInicioAdministradorActionPerformed
+
+    private void BInicioInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BInicioInicioMouseClicked
+        // TODO add your handling code here:
+      ColorSeleccionado(BInicioInicio);
+       
+        
+    }//GEN-LAST:event_BInicioInicioMouseClicked
+
+    private void BInicioConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BInicioConsultasMouseClicked
+        // TODO add your handling code here:
+        ColorSeleccionado(BInicioConsultas);
+      
+    }//GEN-LAST:event_BInicioConsultasMouseClicked
+
+    private void BInicioDueñoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BInicioDueñoMouseClicked
+        // TODO add your handling code here:
+        
+        ColorSeleccionado(BInicioDueño);
+    }//GEN-LAST:event_BInicioDueñoMouseClicked
+
+    private void BInicioAdministradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BInicioAdministradorMouseClicked
+        // TODO add your handling code here:
+        
+       ColorSeleccionado(BInicioAdministrador);
+    }//GEN-LAST:event_BInicioAdministradorMouseClicked
+
+    private void BInicioUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BInicioUsuarioMouseClicked
+        // TODO add your handling code here:
+        
+       ColorSeleccionado(BInicioUsuario);
+    }//GEN-LAST:event_BInicioUsuarioMouseClicked
 
     
     
@@ -369,12 +443,16 @@ public void AdministrarUsuarios(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BExit;
     private javax.swing.JButton BInicioAdministrador;
-    private javax.swing.JButton BInicioAltas;
     private javax.swing.JButton BInicioConsultas;
+    private javax.swing.JButton BInicioDueño;
     private javax.swing.JButton BInicioInicio;
     private javax.swing.JButton BInicioUsuario;
     private javax.swing.JPanel PInterfaz;
     private javax.swing.JPanel PanelInterfaz;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    private boolean BInicioInicioActionPerformed(MouseEvent evt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
