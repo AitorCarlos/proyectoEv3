@@ -24,7 +24,7 @@ import UML_DB.*;
 
 public class todasJornadasParse {
 
-    public static void main() throws Exception {
+    public static void main(String[] args) {
         String nombre_archivo = "TodasJornadas";
         
         //CREAR ARRAYLIST PARA DATOS
@@ -42,7 +42,12 @@ public class todasJornadasParse {
                 ArrayList nombreV = new ArrayList();
                 ArrayList resultadoL = new ArrayList();
                 ArrayList resultadoV = new ArrayList();
-                ArrayList ListaJornadas = JornadaDB.listaJornada();
+                ArrayList ListaJornadas = null;
+                try {
+                    ListaJornadas = JornadaDB.listaJornada();
+                } catch (Exception ex) {
+                    Logger.getLogger(todasJornadasParse.class.getName()).log(Level.SEVERE, null, ex);
+                }
         
                 //REPETITIVAS PARA RELLENAR LOS ARRAYLIST CON DATOS DE LA BD
         for (int j = 0; j < ListaJornadas.size(); j++) {

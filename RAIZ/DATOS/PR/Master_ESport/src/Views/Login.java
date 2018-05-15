@@ -1,34 +1,26 @@
 
 package Views;
 
+import master_esport.*;
 import UML.Miembro;
-import UML.Usuario;
 import UML_DB.MiembroDB;
 import Views.Secundarios.CrearPanel;
-import java.awt.BorderLayout;
-import java.awt.Color;
+import java.awt.*;
 import java.io.File;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
+import javafx.scene.*;
+import javafx.scene.*;
+import javafx.scene.media.*;
+import javax.swing.*;
 import java.awt.Desktop;
 import java.awt.event.KeyEvent;
 import java.net.URI;        
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
                 
-         
-    
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
@@ -47,12 +39,10 @@ public void RegistroPanel(){
         PPanelRegistro.add(c1, BorderLayout.CENTER);
         PPanelRegistro.revalidate();
         PPanelRegistro.repaint();
-        
-        
     } 
+
 //Visualizacion de paneles 
     public void imglinkw(){
-    
         ImageIcon ima = new ImageIcon("src\\Imagenes\\wordpress.png");
         Icon ico = new ImageIcon(ima.getImage().getScaledInstance(60, 60, 0));
         BLinkWordpress.setIcon(ico);
@@ -300,8 +290,6 @@ public void RegistroPanel(){
     }//GEN-LAST:event_BexitActionPerformed
 
     private void BAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BAccederActionPerformed
- 
-        Usuario usu =  new Usuario();
         try {
             Miembro miembro = MiembroDB.consultarMiembroNom(JCUsuarioInicio.getText());
 
@@ -310,6 +298,7 @@ public void RegistroPanel(){
             javax.swing.JOptionPane.showMessageDialog(this, "usuario no encontrado");
         }else
             if (JRContraseñaUsuario.getText().equals(miembro.getContrasenna())) {
+                Master_ESport.cargarParses();
                 this.dispose();
                 Inicio ini = new Inicio();
                 ini.setVisible(true);

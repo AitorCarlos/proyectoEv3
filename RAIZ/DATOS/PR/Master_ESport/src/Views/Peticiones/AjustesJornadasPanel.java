@@ -99,7 +99,7 @@ public class AjustesJornadasPanel extends javax.swing.JPanel {
                 Equipo equipo = (Equipo) equipos.get(i);
                 equiposText = equiposText + equipo.getNombre()+" \n";
             }
-            if (equipos.size()<3) {
+            if (equipos.size()<3 && tbJornada.getText().equalsIgnoreCase("INICIAR")) {
                 tbJornada.setEnabled(false);
                 equiposText = equiposText + "no hay equipos suficientes para iniciar la jornada";
             }

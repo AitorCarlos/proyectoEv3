@@ -303,7 +303,7 @@ public class ModificacionesPanel extends javax.swing.JPanel {
                         JugadorDB.modificarJugadorCodEquipo(EquipoDB.consultarEquipoCodDuenno(DuennoDB.consultarDuennoNickName(usuario.getNickname()).getCodusuario()), jugador);
                         javax.swing.JOptionPane.showMessageDialog(this, "Jugador Añadido");
                         tfSueldoDisponible.setText("");
-                        this.repaint();
+                        this.paintAll(this.getGraphics());  
                     } catch (Exception ex) {
                         javax.swing.JOptionPane.showMessageDialog(this, ex.getMessage());
                     }
