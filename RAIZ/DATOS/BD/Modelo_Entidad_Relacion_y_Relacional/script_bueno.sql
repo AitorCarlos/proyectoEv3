@@ -94,8 +94,7 @@ ALTER TABLE duenno ADD CONSTRAINT duenno_usuarios_FK FOREIGN KEY ( usuarios_codU
 ALTER TABLE equipo ADD CONSTRAINT equipo_duenno_FK FOREIGN KEY ( duenno_codDuenno ) REFERENCES duenno ( codDuenno ) ON
 DELETE CASCADE ;
 
-ALTER TABLE jugador ADD CONSTRAINT jugador_equipo_FK FOREIGN KEY ( equipo_codEquipo ) REFERENCES equipo ( codEquipo ) ON
-DELETE CASCADE ;
+ALTER TABLE jugador ADD CONSTRAINT jugador_equipo_FK FOREIGN KEY ( equipo_codEquipo ) REFERENCES equipo ( codEquipo );
 
 ALTER TABLE partido ADD CONSTRAINT partido_equipo_FK FOREIGN KEY ( equipo_codEquipoVisitante ) REFERENCES equipo ( codEquipo ) ON
 DELETE CASCADE ;

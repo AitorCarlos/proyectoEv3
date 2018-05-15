@@ -25,23 +25,26 @@ import javax.xml.transform.OutputKeys;
 
 public class clasificacionParse {
 
-    public static void main() throws Exception {
+    public static void main(String[] args) {
         String nombre_archivo = "calsificacion";
-        //LLAMAR A FUNCION QUE CREA EL FICHERO PASANDOLE EL ARRAYLIST
+        /*
+        *LLAMAR A FUNCIÓN QUE CREA EL FICHERO PASANDOLE EL ARRAYLIST
+        */
         try { 
             generate(PartidoDB.clasificacionEquipos(), nombre_archivo);
         } catch (Exception e) {System.out.println(e.getMessage());}
     }
 
     public static void generate(ArrayList ListaEquipos, String name) throws Exception{
-            //CREAR FICHERO XML VERSION 1.0
+            /**
+             * CREAR FICHERO XML VERSION 1.0
+             */
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             DOMImplementation implementation = builder.getDOMImplementation();
             Document document = implementation.createDocument(null, name, null);
             document.setXmlVersion("1.0");
             Transformer tFormer = TransformerFactory.newInstance().newTransformer();
-          //  Set system id
             tFormer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "systmId");
 
 
@@ -49,14 +52,16 @@ public class clasificacionParse {
             
             
             
-            //NODO RAIZ
+            /**
+             * NODO RAIZ
+             */
             Element raiz = document.getDocumentElement();
-            //REPETITIVA PARA LAS NUMEROSOS EQUIPOS
+            /**REPETITIVA PARA LAS NUMEROSOS EQUIPOS*/
             for(int i=0; i<ListaEquipos.size();i++){
                 Equipo equipo = (Equipo) ListaEquipos.get(i);
                 Element Equipo = document.createElement("Equipo"); 
                 equipo.setNombre(EquipoDB.consultarEquipoCod(equipo.getCodequipo()).getNombre());
-                //ELEMENTOS
+                /**ELEMENTOS*/
                 Element datosEquipo = document.createElement("datosEquipo"); 
                 Element codigoNode = document.createElement("codigo");
                 Text codigoValue = document.createTextNode(String.valueOf(equipo.getCodequipo()));
@@ -70,22 +75,20 @@ public class clasificacionParse {
                 Text resultadoValue = document.createTextNode(String.valueOf(equipo.getPuntosClasificacion()));
                 resultadoNode.appendChild(resultadoValue);
 
-                        //ASIGNAR ESTRUCTURA
+                /**ASIGNAR ESTRUCTURA*/
                 Equipo.appendChild(datosEquipo);
                 Equipo.appendChild(resultadoNode);
                 datosEquipo.appendChild(codigoNode);
                 datosEquipo.appendChild(nombreNode);
             
-                //ASIGNAR RAMAS A RAIZ
-                raiz.appendChild(Equipo); //pegamos el elemento a la raiz "Documento"
+                /**ASIGNAR RAMAS A RAIZ*/
+                raiz.appendChild(Equipo); /**Pegamos el elemento a la raiz "Documento"*/
             }
                             
-            //GENERAR XML
-            
-            
+            /**GENERAR XML*/
             
             Source source = new DOMSource(document);
-            //Indicamos donde lo queremos almacenar
+            /**Indicamos donde lo queremos almacenar*/
             name = "clasificacion";
             Result result = new StreamResult(new java.io.File("../../LM/"+name+".xml")); //nombre del archivo
             Transformer transformer = TransformerFactory.newInstance().newTransformer();

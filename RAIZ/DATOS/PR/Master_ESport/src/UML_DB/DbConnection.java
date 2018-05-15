@@ -1,19 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package UML_DB;
 
 /**
  *
- * @author 1GDAW03
+ * @author Eqdaw03
+ */
+
+/**
+ * Clase dbconnection
+ * Esta clase nos sirve para hacer la conexión con la base de datos.
  */
 
 import java.sql.*;
 
 public class DbConnection {
     
+    /**
+     * Variables login, password, url para los datos de la base de datos
+     */
+    
+    //private String login = "eqdaw03";
+    //private String password = "eqdaw03";
+    private String login = "SCOTT";
+    private String password = "scott";
+    //private String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
+    private String url = "jdbc:oracle:thin:@10.10.10.9:1521:db12102";
     //"jdbc:oracle:thin:@SrvOracle:1521:orcl"
 
     
@@ -26,7 +36,7 @@ public class DbConnection {
          connection = DriverManager.getConnection(url,login,password);
  
          if (connection==null){
-            throw new Exception("Problemas con la conexión");
+            throw new Exception("Error de conexión");
          }
    }
     

@@ -10,17 +10,22 @@ import UML_DB.JugadorDB;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javax.swing.JOptionPane.showConfirmDialog;
+import static javax.swing.JOptionPane.showMessageDialog;
+import javax.swing.JPanel;
 
 public class ModificacionesPanel extends javax.swing.JPanel {
 
     private Usuario usuario;
+    private CrearPanel superP;
     
     public ModificacionesPanel() {
         initComponents();
     }
 
-    public void cargarDatos(Usuario usuario) throws Exception{
+    public void cargarDatos(Usuario usuario, CrearPanel superP) throws Exception{
         this.usuario=usuario;
+        this.superP = superP;
         Duenno duenno = DuennoDB.consultarDuennoNickName(usuario.getNickname());
         Equipo equipo = EquipoDB.consultarEquipoCodDuenno(duenno.getCodusuario());
         jlNombreEquipo.setText(equipo.getNombre());
@@ -268,6 +273,8 @@ public class ModificacionesPanel extends javax.swing.JPanel {
             jugador.setNickname(tfNickname.getText());
             jugador.setCodjugador(JugadorDB.consultarJugadorNick(tfNickname.getText()).getCodjugador());
             JugadorDB.modificarJugador(jugador);
+            showMessageDialog(this, "Jugador Actualizado");
+            superP.ActualizarModificarJugador();
         } catch (Exception ex) {
             javax.swing.JOptionPane.showMessageDialog(this, ex.getMessage());
         }
@@ -301,7 +308,7 @@ public class ModificacionesPanel extends javax.swing.JPanel {
                         JugadorDB.modificarJugadorCodEquipo(EquipoDB.consultarEquipoCodDuenno(DuennoDB.consultarDuennoNickName(usuario.getNickname()).getCodusuario()), jugador);
                         javax.swing.JOptionPane.showMessageDialog(this, "Jugador Añadido");
                         tfSueldoDisponible.setText("");
-                        this.repaint();
+                        superP.ActualizarModificarJugador();
                     } catch (Exception ex) {
                         javax.swing.JOptionPane.showMessageDialog(this, ex.getMessage());
                     }
@@ -314,7 +321,7 @@ public class ModificacionesPanel extends javax.swing.JPanel {
             Jugador jugador = JugadorDB.consultarJugadorNick(tfNickname.getText());
             jugador.setSueldo(null);
             JugadorDB.modificarJugadorCodEquipo(null, jugador);
-            
+            superP.ActualizarModificarJugador();
         } catch (Exception ex) {
             Logger.getLogger(ModificacionesPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -323,7 +330,16 @@ public class ModificacionesPanel extends javax.swing.JPanel {
 
     private void jlEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jlEquipoActionPerformed
         try {
-            EquipoDB.borrarEquipo(EquipoDB.consultarEquipoNom(jlNombreEquipo.getText()).getCodequipo());
+            
+            if(showConfirmDialog(this, "¿Seguro que quieres eliminar tú equipo?")==0){
+            
+                Equipo e1 = EquipoDB.consultarEquipoNom(jlNombreEquipo.getText());
+                
+                JugadorDB.quitarJugadorEquipo(e1);
+                EquipoDB.borrarEquipo(e1.getCodequipo());
+                showMessageDialog(this, "Equipo eliminado");
+            }
+
         } catch (Exception ex) {
             Logger.getLogger(ModificacionesPanel.class.getName()).log(Level.SEVERE, null, ex);
         }

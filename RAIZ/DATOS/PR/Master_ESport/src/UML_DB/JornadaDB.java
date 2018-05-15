@@ -21,8 +21,7 @@ public class JornadaDB {
 
            conex.desconectar();
     }
-    
-    
+
     public Jornada inVerJornada(Jornada jornada)throws Exception{
     
         DbConnection conex = new  DbConnection();

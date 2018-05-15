@@ -5,7 +5,18 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ *
+ * @author Eqdaw03
+ */
+
+/**
+ * Clase jornada
+ * Esta clase nos sirve para crear las distintas jornadas.
+ */
+
 public class Jornada {
+    
 	ArrayList <Partido> partido;
 	private Integer codJornada;
 	private java.sql.Date fechaInicio;
@@ -58,13 +69,13 @@ public class Jornada {
         this.fechaFin = fechaFin;
     }
 
+    /**
+     * Devuelve todos los partidos que hay en una jornada y su resultado
+     */
+    
     @Override
     public String toString() {
-            try {
-                //setPartido(PartidoDB.listaPartidoPorJornada(codJornada));
-            } catch (Exception ex) {
-                Logger.getLogger(Jornada.class.getName()).log(Level.SEVERE, null, ex);
-            }
+
         String partidos="";
         for (int i = 0; i < partido.size(); i++) {
             partidos = partidos +"L:" +partido.get(i).getLocal().getNombre() +" - "+partido.get(i).getResultadoEL()+" VS "+ "V:"+partido.get(i).getVisitante().getNombre() +"-"+partido.get(i).getResultadoEV()+ "<br>";

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package UML_DB;
 
 import UML.*;
@@ -15,12 +10,20 @@ import java.util.ArrayList;
 
 /**
  *
- * @author alex
+ * @author Eqdaw03
  */
+
+/**
+ * Clase equipodb
+ * Esta clase nos sirve para hacer un CRUD de equipo en la base de datos.
+ */
+
 public class EquipoDB {
     
     
-    //Registrar un equipo
+    /**
+     * Esta función nos permite insertar un equipo con su dueño en la base de datos
+     */
     public void registrarEquipo(Equipo equipo, Duenno duenno) throws Exception{
 
        DbConnection conex = new DbConnection();
@@ -32,7 +35,9 @@ public class EquipoDB {
         conex.desconectar();
     }
     
-    //Consultar equipo y su dueño mediante su codigo
+    /**
+     * Esta función nos permite consultar un equipo con su dueño en la base de datos y nos devuelve un objeto equipo
+     */
     public static Equipo consultarEquipoCod(int codequipo) throws Exception{
         
         Equipo equipo = null;
@@ -59,7 +64,9 @@ public class EquipoDB {
         return equipo;
     }
     
-    //Consultar equipo por codigo de duenno
+    /**
+     * Esta función nos permite consultar un equipo y sus jugadores mediante el código de su dueño y nos devuelve un objeto equipo
+     */
     public static Equipo consultarEquipoCodDuenno(int codDuenno) throws Exception{
         
         Equipo equipo = null;
@@ -85,7 +92,9 @@ public class EquipoDB {
         return equipo;
     }
     
-    //Consultar equipo mediante su nombre
+    /**
+     * Esta función nos permite consultar un equipo con su dueño y sus jugadores mediante su nombre y nos devuelve un objeto equipo
+     */
     public static Equipo consultarEquipoNom(String nombre) throws Exception{
         
         Equipo equipo = null;
@@ -111,7 +120,9 @@ public class EquipoDB {
         return equipo;
     }
     
-    //Lista de equipos
+    /**
+     * esta función nos permite consultar todos los equipos que hay en la base de datos
+     */
     public static ArrayList <Equipo> listaEquipo() throws Exception{
         
         ArrayList <Equipo> listaEquipo = new ArrayList();
@@ -137,7 +148,9 @@ public class EquipoDB {
         return listaEquipo;
     }
     
-    //Borrar un equipo
+    /**
+     * Esta función nos permite borrar un equipo mediante su codigo
+     */
     public static void borrarEquipo(int codEquipo) throws Exception{
     
        DbConnection conex = new DbConnection();

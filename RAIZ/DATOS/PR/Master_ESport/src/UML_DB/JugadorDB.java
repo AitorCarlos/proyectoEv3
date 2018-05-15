@@ -11,9 +11,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import static javax.swing.JOptionPane.showMessageDialog;
 
+/**
+ *
+ * @author Eqdaw03
+ */
+
+/**
+ * Clase jugadordb
+ * Esta clase nos sirve para hacer un CRUD de jugador en la base de datos.
+ */
+
 public  class JugadorDB {
     
-    //registrar jugador sin sueldo
+    /**
+     * Esta función nos permite insertar un jugador sin sueldo en la base de datos
+     */
     public static void registrarJugador(Jugador jugador) throws Exception{
 
        DbConnection conex = new DbConnection();
@@ -25,7 +37,9 @@ public  class JugadorDB {
         conex.desconectar();
     }
     
-    //registrar jugador con sueldo
+    /**
+     * Esta función nos permite insertar un jugador con sueldo en la base de datos
+     */
     public static void registrarJugadorS(Jugador jugador) throws Exception{
 
        DbConnection conex = new DbConnection();
@@ -37,7 +51,9 @@ public  class JugadorDB {
         conex.desconectar();
     }
     
-        //registrar jugador con equipo
+    /**
+     * Esta función nos permite insertar un jugador con su equipo en la base de datos
+     */
     public static void registrarJugadorConEquipo(Jugador jugador) throws Exception{
 
        DbConnection conex = new DbConnection();
@@ -50,7 +66,9 @@ public  class JugadorDB {
     }
     
     
-    //buscar jugador y el equipo mediante su codigo
+    /**
+     * Esta función nos permite buscar un jugador con su equipo mediante su código en la base de datos y nos devuelve un objeto jugador
+     */
     public Jugador consultarJugadorCod(int codjugador) throws Exception{
         
         Jugador jugador = null;
@@ -80,7 +98,9 @@ public  class JugadorDB {
         return jugador;
     }
     
-    //buscar jugador y el equipo mediante su Nickname
+    /**
+     * Esta función nos permite buscar un jugador con su equipo mediante su nickname en la base de datos y nos devuelve un objeto jugador
+     */
     public static Jugador consultarJugadorNick(String nickname) throws Exception{
         
         Jugador jugador = null;
@@ -110,7 +130,9 @@ public  class JugadorDB {
         return jugador;
     }
     
-        //buscar jugador y el equipo mediante su Nickname
+    /**
+     * Esta función nos permite buscar un jugador sin equipo mediante su código en la base de datos y nos devuelve un objeto jugador
+     */
     public static Jugador consultarJugadorNickSinEquipo(String nickname) throws Exception{
         
         Jugador jugador = null;
@@ -138,7 +160,9 @@ public  class JugadorDB {
         return jugador;
     }
     
-    //lista de jugadores
+    /**
+     * Esta función nos permite buscar todos los jugadores que hay la base de datos y nos devuelve un arraylist
+     */
     public ArrayList <Jugador> listaJugador() throws Exception{
         
         ArrayList <Jugador> listaJugador = new ArrayList();
@@ -167,7 +191,9 @@ public  class JugadorDB {
         return listaJugador;
     }
     
-    //borrar jugador mediante su codigo
+    /**
+     * Esta función nos permite borrar un jugador mediante su código
+     */
     public void borrarJugador(int codJugador) throws Exception{
     
        DbConnection conex = new DbConnection();
@@ -178,7 +204,9 @@ public  class JugadorDB {
         conex.desconectar();
     }
     
-    //Modificar el jugador
+    /**
+     * Esta función nos permite modificar un jugador en la base de datos
+     */
     public static void modificarJugador(Jugador jugador) throws Exception{
 
        DbConnection conex = new DbConnection();
@@ -198,7 +226,9 @@ public  class JugadorDB {
         conex.desconectar();
     }
     
-    //Modificar el codigo_codequipo en el jugador, asignarle un jugador al equipo
+    /**
+     * Esta función nos permite modificar el codigo_codequipo en el jugador o asignarle un jugador al equipo
+     */
     public static void modificarJugadorCodEquipo(Equipo equipo, Jugador jugador) throws Exception{
 
         
@@ -215,7 +245,9 @@ public  class JugadorDB {
     }
     
     
-    //consultar jugador sin equipo
+    /**
+     * Esta función nos permite consultar un jugador sin equipo en la base de datos y nos devuelve un objeto jugador
+     */
     public Jugador conJuga(String nombre) throws Exception{
         
         Jugador jugador = null;
@@ -246,6 +278,9 @@ public  class JugadorDB {
         return jugador;
     }
     
+    /**
+     * Esta función nos permite buscar todos los jugadores que hay en la base de datos que no tengan equipo y nos devuelve un arraylist
+     */
         public static ArrayList <Jugador> listaDeJugadoresSinEquipo() throws SQLException, Exception{
         ArrayList jugadores = new <Jugador> ArrayList(); 
         Jugador jugador = null;
@@ -272,6 +307,9 @@ public  class JugadorDB {
         return jugadores;
     }
     
+     /**
+     * Esta función nos permite buscar todos los jugadores con su equipo que hay en la base de datos y nos devuelve un arraylist
+     */
     public static ArrayList <Jugador> listaDeJugadoresEquipo(String codEquipo) throws SQLException, Exception{
         ArrayList jugadores = new <Jugador> ArrayList(); 
         Jugador jugador = null;
@@ -300,7 +338,17 @@ public  class JugadorDB {
         return jugadores;
     }
     
-    
-    
-    
+    /**
+     * Esta función nos permite eliminar un jugador de su equipo y poner su sueldo a 0
+     */
+    public static void quitarJugadorEquipo(Equipo equipo) throws Exception{
+
+       DbConnection conex = new DbConnection();
+
+        Statement sentencia = conex.getConnection().createStatement();
+        
+        sentencia.executeUpdate("update jugador set EQUIPO_CODEQUIPO = null, sueldo = 0 where EQUIPO_CODEQUIPO = '"+equipo.getCodequipo()+"'");
+        
+        conex.desconectar();
+    }
 }

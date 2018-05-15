@@ -24,10 +24,10 @@ import UML_DB.*;
 
 public class todasJornadasParse {
 
-    public static void main() throws Exception {
+    public static void main(String[] args) {
         String nombre_archivo = "TodasJornadas";
         
-        //CREAR ARRAYLIST PARA DATOS
+        /**CREAR ARRAYLIST PARA DATOS*/
         ArrayList datosJornada = new ArrayList();
             ArrayList codigo = new ArrayList();
             ArrayList fechaI = new ArrayList();
@@ -42,9 +42,14 @@ public class todasJornadasParse {
                 ArrayList nombreV = new ArrayList();
                 ArrayList resultadoL = new ArrayList();
                 ArrayList resultadoV = new ArrayList();
-                ArrayList ListaJornadas = JornadaDB.listaJornada();
+                ArrayList ListaJornadas = null;
+                try {
+                    ListaJornadas = JornadaDB.listaJornada();
+                } catch (Exception ex) {
+                    Logger.getLogger(todasJornadasParse.class.getName()).log(Level.SEVERE, null, ex);
+                }
         
-                //REPETITIVAS PARA RELLENAR LOS ARRAYLIST CON DATOS DE LA BD
+        /**REPETITIVAS PARA RELLENAR LOS ARRAYLIST CON DATOS DE LA BD*/
         for (int j = 0; j < ListaJornadas.size(); j++) {
             Jornada jornadaObj = (Jornada) ListaJornadas.get(j);
             codigo.add(jornadaObj.getCodJornada());
@@ -61,7 +66,7 @@ public class todasJornadasParse {
                 resultadoV.add(String.valueOf(partidoObj.getResultadoEV()));
             }
         }
-        //LLAMAR A FUNCION QUE CREA EL FICHERO PASANDOLE LOS ARRAYLIST
+        /**LLAMAR A FUNCION QUE CREA EL FICHERO PASANDOLE LOS ARRAYLIST*/
         try { 
             generate(ListaJornadas, nombre_archivo);
         } catch (Exception e) {System.out.println(e.getMessage());}
@@ -77,13 +82,13 @@ public class todasJornadasParse {
             
             
             
-            //NODO RAIZ
+            /**NODO RAIZ*/
             Element raiz = document.getDocumentElement();
-            //REPETITIVA PARA LAS NUMEROSAS JORNADAS
+            /**REPETITIVA PARA LAS NUMEROSAS JORNADAS*/
             for(int i=0; i<ListaJornadas.size();i++){
                 Jornada jornada = (Jornada) ListaJornadas.get(i);
                 Element Jornada = document.createElement("Jornada"); 
-                //ELEMENTOS
+                /**ELEMENTOS*/
                 Element datosJornada = document.createElement("datosJornada"); 
                 Element codigoNode = document.createElement("codigo");
                 Text codigoValue = document.createTextNode(String.valueOf(jornada.getCodJornada()));
@@ -98,7 +103,7 @@ public class todasJornadasParse {
                 fechaFNode.appendChild(fechaFValue);
                 
                 Element partidos = document.createElement("partidos"); 
-                //REPETITIVA CON LOS NUMEROSOS PARTIDOS DENTRO DE CADA JORNADA
+                /**REPETITIVA CON LOS NUMEROSOS PARTIDOS DENTRO DE CADA JORNADA*/
                     for(int j=0; j<jornada.getPartido().size();j++){
                         Partido partidoObj = jornada.getPartido().get(j);
                         
@@ -127,7 +132,7 @@ public class todasJornadasParse {
                         Element resultadoVNode = document.createElement("resultadoV"); 
                         Text resultadoVValue = document.createTextNode(String.valueOf(partidoObj.getResultadoEV()));                
                         resultadoVNode.appendChild(resultadoVValue);
-                        //ASIGNAR ESTRUCTURA
+                        /**ASIGNAR ESTRUCTURA*/
                         partido.appendChild(codigoPNode);
                         partido.appendChild(fechaPNode);
                         partido.appendChild(nombreLNode);
@@ -143,13 +148,13 @@ public class todasJornadasParse {
                 
                 Jornada.appendChild(datosJornada);
                 Jornada.appendChild(partidos);
-                //ASIGNAR RAMAS A RAIZ
-                raiz.appendChild(Jornada); //pegamos el elemento a la raiz "Documento"
+                /**ASIGNAR RAMAS A RAIZ*/
+                raiz.appendChild(Jornada); /**Pegamos el elemento a la raiz "Documento"*/
             }
                             
-            //GENERAR XML
+            /**GENERAR XML*/
             Source source = new DOMSource(document);
-            //Indicamos donde lo queremos almacenar
+            /**Indicamos donde lo queremos almacenar*/
             name = "todasJornadas";
             Result result = new StreamResult(new java.io.File("../../LM/"+name+".xml")); //nombre del archivo
             Transformer transformer = TransformerFactory.newInstance().newTransformer();

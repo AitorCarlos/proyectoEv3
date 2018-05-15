@@ -19,14 +19,26 @@ import java.util.ArrayList;
 
 /**
  *
- * @author 1GDAW03
+ * @author Eqdaw03
  */
+
+/**
+ * Clase peticiondb
+ * Esta clase nos sirve para hacer un CRUD de peticion en la base de datos.
+ */
+
 public class PeticionDB {
 
+    /**
+     * Variables globale para saber que tipo de peticion se ha realizado
+     */
     public static String tipoDuenno;
     public static String tipoEquipo;
     public static String tipoJugador;
     
+    /**
+     * Esta función nos permite insertar una peticion de dueño en la base de datos
+     */
     public void peticionDuenno(Duenno duenno, String tipo) throws Exception{
 
        DbConnection conex = new DbConnection();
@@ -39,6 +51,9 @@ public class PeticionDB {
         conex.desconectar();
     }
     
+    /**
+     * Esta función nos permite insertar una peticion de jugador con equipo en la base de datos
+     */
     public void peticionJugadorEquipo(Jugador jugador, Equipo equipo, String tipo) throws Exception{
 
        DbConnection conex = new DbConnection();
@@ -51,6 +66,9 @@ public class PeticionDB {
         conex.desconectar();
     }
     
+    /**
+     * Esta función nos permite insertar una peticion de jugador sin equipo en la base de datos
+     */
     public void peticionJugadorSin(Jugador jugador, String tipo) throws Exception{
 
        DbConnection conex = new DbConnection();
@@ -63,6 +81,9 @@ public class PeticionDB {
         conex.desconectar();
     }
     
+    /**
+     * Esta función nos permite insertar una peticion de equipo con su dueño en la base de datos
+     */
     public void peticionEquipo(Equipo equipo, Duenno duenno, String tipo) throws Exception{
 
        DbConnection conex = new DbConnection();
@@ -75,92 +96,9 @@ public class PeticionDB {
         conex.desconectar();
     }
     
-    public Duenno consultarDuenno() throws Exception{
-        
-       Duenno duenno = null;
-       DbConnection conex = new DbConnection();
-   
-        PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM peticion");
-        ResultSet res = consulta.executeQuery();
-
-        if(res.next()){
-            
-            duenno = new Duenno();
-            duenno.setNickname(res.getString("nickname"));
-            duenno.setNombre(res.getString("nombre"));
-            duenno.setApellido(res.getString("apellido"));
-            duenno.setContrasenna(res.getString("contrasenna"));
-            duenno.setPermiso(res.getString("permiso"));
-            tipoDuenno = res.getString("tipo");
-            
-        }
-        else
-            throw new Exception ("Dueño no encontrada");
-       
-
-        res.close();
-        consulta.close();
-        conex.desconectar();
- 
-        return duenno;
-    }
-    
-    public Jugador consultarJugador() throws Exception{
-        
-       Jugador jugador = null;
-       DbConnection conex = new DbConnection();
-   
-        PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM peticion");
-        ResultSet res = consulta.executeQuery();
-
-        if(res.next()){
-            
-            jugador = new Jugador();
-            jugador.setNombre(res.getString("nombre"));
-            jugador.setApellido(res.getString("apellido"));
-            jugador.setNickname(res.getString("nickname"));
-            jugador.setSueldo(Double.valueOf(res.getString("sueldo")));
-            tipoJugador = res.getString("tipo");
-            
-        }
-        else
-            throw new Exception ("Jugador no encontrada");
-       
-
-        res.close();
-        consulta.close();
-        conex.desconectar();
- 
-        return jugador;
-    }
-    
-    public Equipo consultarEquipo() throws Exception{
-        
-       Equipo equipo = null;
-       DbConnection conex = new DbConnection();
-   
-        PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM peticion");
-        ResultSet res = consulta.executeQuery();
-
-        if(res.next()){
-            
-            equipo = new Equipo();
-            equipo.setNombre(res.getString("nombre"));
-            equipo.setDuenno(consultarDuennoCod(Integer.parseInt(res.getString("duenno_codduenno"))));
-            tipoEquipo = res.getString("tipo");
-            
-        }
-        else
-            throw new Exception ("Equipo no encontrada");
-       
-
-        res.close();
-        consulta.close();
-        conex.desconectar();
- 
-        return equipo;
-    }
-    
+    /**
+     * Esta función nos permite consultar todas las peticiones de dueño de la base de datos
+     */
     public ArrayList <Duenno> listaPetiDuenno() throws Exception{
         
         ArrayList <Duenno> listaDuenno = new ArrayList();
@@ -189,6 +127,9 @@ public class PeticionDB {
         return listaDuenno;
     }
     
+    /**
+     * Esta función nos permite consultar todas las peticiones de jugador de la base de datos
+     */
     public ArrayList <Jugador> listaPetiJugador() throws Exception{
         
         ArrayList <Jugador> listaJugador = new ArrayList();
@@ -224,6 +165,9 @@ public class PeticionDB {
         return listaJugador;
     }
     
+    /**
+     * Esta función nos permite consultar todas las peticiones de equipo de la base de datos
+     */
     public ArrayList <Equipo> listaPetiEquipo() throws Exception{
         
         ArrayList <Equipo> listaEquipo = new ArrayList();
@@ -249,6 +193,9 @@ public class PeticionDB {
         return listaEquipo;
     }
     
+    /**
+     * Esta función nos permite borrar las peticiones mediante su nickname
+     */
     public void borrarPeticionDJ(String nickname) throws Exception{
     
         DbConnection conex = new DbConnection();
@@ -259,6 +206,9 @@ public class PeticionDB {
         conex.desconectar();
     }
     
+    /**
+     * Esta función nos permite borrar las peticiones mediante su nombre
+     */
     public void borrarPeticionE(String nombre) throws Exception{
     
         DbConnection conex = new DbConnection();

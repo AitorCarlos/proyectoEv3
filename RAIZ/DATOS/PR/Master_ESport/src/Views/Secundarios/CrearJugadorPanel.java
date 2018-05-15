@@ -8,6 +8,7 @@ import Views.Consultas.ConsultarEquipoPanel;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javax.swing.JOptionPane.showMessageDialog;
 import master_esport.Master_ESport;
 
 public class CrearJugadorPanel extends javax.swing.JPanel {
@@ -158,16 +159,21 @@ public class CrearJugadorPanel extends javax.swing.JPanel {
             jugador.setNombre(TNombre.getText());
             jugador.setApellido(TApellidos.getText());
             jugador.setNickname(TNickname.getText());
-            if (CEquipo.getSelectedItem().toString()=="-----") {
-                Master_ESport.peticionJugador(jugador, null, "jugador");
-            }else{
-                jugador.setSueldo(Double.parseDouble(TSueldo.getText()));
-                Equipo equipo = EquipoDB.consultarEquipoNom(CEquipo.getSelectedItem().toString());
-                jugador.setEquipo(equipo);
-                Master_ESport.peticionJugador(jugador, equipo, "jugador");
-            }
-            javax.swing.JOptionPane.showMessageDialog(this, "Peticion Jugador Creada");
-            
+            if (JugadorDB.consultarJugadorNickSinEquipo(TNickname.getText())!=null) {
+                showMessageDialog(this, "Nickname ocupado, prueba con otro.");
+            }else
+                if (CEquipo.getSelectedItem().toString()=="-----") {
+                    Master_ESport.peticionJugador(jugador, null, "jugador");
+                    javax.swing.JOptionPane.showMessageDialog(this, "Peticion Jugador Creada");
+                    this.paintAll(this.getGraphics());  
+                }else{
+                    jugador.setSueldo(Double.parseDouble(TSueldo.getText()));
+                    Equipo equipo = EquipoDB.consultarEquipoNom(CEquipo.getSelectedItem().toString());
+                    jugador.setEquipo(equipo);
+                    Master_ESport.peticionJugador(jugador, equipo, "jugador");
+                    this.paintAll(this.getGraphics());  
+                    javax.swing.JOptionPane.showMessageDialog(this, "Peticion Jugador Creada");
+                }
         } catch (Exception ex) {javax.swing.JOptionPane.showMessageDialog(this, ex.getMessage());}
     }//GEN-LAST:event_jbCrearActionPerformed
 
@@ -177,6 +183,7 @@ public class CrearJugadorPanel extends javax.swing.JPanel {
             TSueldo.setEnabled(true);
         }else
             TSueldo.setEnabled(false);
+            TSueldo.setText("");
     }//GEN-LAST:event_CEquipoItemStateChanged
 
 
