@@ -9,8 +9,21 @@ import java.util.ArrayList;
 import oracle.jdbc.OracleTypes;
 import oracle.sql.DATE;
 
+/**
+ *
+ * @author Eqdaw03
+ */
+
+/**
+ * Clase jornadadb
+ * Esta clase nos sirve para hacer un CRUD de jornada en la base de datos.
+ */
+
 public class JornadaDB {
     
+    /**
+     * Esta función nos permite insertar una jornada en la base de datos
+     */
     public void registrarJornada(UML.Jornada jornada) throws Exception{
         
        DbConnection conex = new DbConnection();
@@ -22,6 +35,9 @@ public class JornadaDB {
            conex.desconectar();
     }
 
+    /**
+     * Esta función nos permite insertar una jornada y obtener la ultima jornada que se ha insertado
+     */
     public Jornada inVerJornada(Jornada jornada)throws Exception{
     
         DbConnection conex = new  DbConnection();
@@ -38,6 +54,9 @@ public class JornadaDB {
         return jornada;
     }
     
+    /**
+     * Esta función nos permite consultar una jornada mediante su código
+     */
     public static Jornada consultarJornada(int codJornada) throws Exception{
         
         Jornada jornada = null;
@@ -63,6 +82,9 @@ public class JornadaDB {
         return jornada;
     }
     
+    /**
+     * Esta función nos permite consultar todas las jornadas que tengamos en la base de datos ordenadas por su código
+     */
     public static ArrayList <Jornada> listaJornada() throws Exception{
         
         ArrayList <Jornada> listaJornada = new ArrayList();
@@ -88,32 +110,10 @@ public class JornadaDB {
    
         return listaJornada;
     }
-    
-    public static ArrayList <Jornada> clasificacionJornadas() throws Exception{
-        
-        ArrayList <Jornada> listaJornada = new ArrayList();
 
-        DbConnection conex= new  DbConnection();
-
-        Statement consulta = conex.getConnection().createStatement();
-        ResultSet res = consulta.executeQuery("Select * from jornada order by codjornada asc");
-        
-        while(res.next()){
-          Jornada jornada = new Jornada();
-          jornada.setCodJornada(Integer.parseInt(res.getString("codjornada")));
-          jornada.setFechaInicio(res.getDate("fechajornadai"));
-          jornada.setFechaFin(res.getDate("fechajornadaf"));
-          jornada.setPartido(PartidoDB.listaPartidoPorJornada(jornada.getCodJornada()));
-          listaJornada.add(jornada);
-        }
-        
-        res.close();
-        consulta.close();
-        conex.desconectar();
-   
-        return listaJornada;
-    }
-    
+    /**
+     * Esta función nos permite borrar todas las jornadas que tengamos
+     */
     public static void borrarTodasJornadas() throws Exception{
     
         DbConnection conex= new  DbConnection();
@@ -124,6 +124,9 @@ public class JornadaDB {
         conex.desconectar();
     }
     
+    /**
+     * Esta función nos permite borrar una jornada por su código
+     */
     public void borrarJornada(int codJornada) throws Exception{
     
         DbConnection conex= new  DbConnection();
@@ -134,6 +137,9 @@ public class JornadaDB {
         conex.desconectar();
     }
     
+    /**
+     * Esta función nos permite ver una jornada por su código
+     */
     public static Jornada verJornada(int codJornada) throws Exception{
         
         Jornada jornada = null;
