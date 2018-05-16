@@ -1,10 +1,12 @@
 package Views.Secundarios;
 
 import UML.Usuario;
+import UML_DB.EquipoDB;
 import Views.Consultas.ConsultarJornadaPanel;
 import java.awt.BorderLayout;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 public class CrearPanel extends javax.swing.JPanel {
     
@@ -42,22 +44,21 @@ private Usuario usuario;
     
     //Visualizacion de paneles  
      public void ModificarEquipo(){
-    
-        CrearEquiposPanel c1 = new CrearEquiposPanel();
-        c1.setSize(991, 578);
-        c1.setLocation(0, 0);
-        
-        PInterfazAltas.removeAll();
-        PInterfazAltas.add(c1, BorderLayout.CENTER);
-        PInterfazAltas.revalidate();
-        PInterfazAltas.repaint();
-    }
+            CrearEquiposPanel c1 = new CrearEquiposPanel();
+            c1.setSize(991, 578);
+            c1.setLocation(0, 0);
 
+            PInterfazAltas.removeAll();
+            PInterfazAltas.add(c1, BorderLayout.CENTER);
+            PInterfazAltas.revalidate();
+            PInterfazAltas.repaint();
+    }
+     
      //Visualizacion de paneles  
      public void ModificarJugador() throws Exception{
     
         ModificacionesPanel c1 = new ModificacionesPanel();
-        c1.cargarDatos(usuario);
+        c1.cargarDatos(usuario, this);
         c1.setSize(991, 578);
         c1.setLocation(0, 0);
         
@@ -67,7 +68,9 @@ private Usuario usuario;
         PInterfazAltas.repaint();
     }
 
-     
+    public void ActualizarModificarJugador(){
+            BModificarJugador.doClick();
+    }
      
      
      
@@ -190,6 +193,9 @@ private Usuario usuario;
     private void BModificarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BModificarJugadorActionPerformed
     try {
         //LLamar a la clase
+        if (EquipoDB.consultarEquipoCodDuenno(usuario.getCodusuario())==null)
+            showMessageDialog(this, "Necesitas crear un equipo para poder modificarlo");
+        else
         ModificarJugador();
     } catch (Exception ex) {
         Logger.getLogger(CrearPanel.class.getName()).log(Level.SEVERE, null, ex);

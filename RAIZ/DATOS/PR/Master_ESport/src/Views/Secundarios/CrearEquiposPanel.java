@@ -12,6 +12,7 @@ import UML_DB.DuennoDB;
 import UML_DB.EquipoDB;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javax.swing.JOptionPane.showMessageDialog;
 import master_esport.*;
 
 /**
@@ -104,6 +105,7 @@ public class CrearEquiposPanel extends javax.swing.JPanel {
             duenno.setCodusuario(duenno.getCodusuario());
             equipo.setDuenno(duenno);
             Master_ESport.peticionEquipo(equipo, duenno, "equipo");
+            showMessageDialog(this, "Petición realizada, espere a que acepte el administrador");
         } catch (Exception ex) {
             Logger.getLogger(CrearEquiposPanel.class.getName()).log(Level.SEVERE, null, ex);
         }

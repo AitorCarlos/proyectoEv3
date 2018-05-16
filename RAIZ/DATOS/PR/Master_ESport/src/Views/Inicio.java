@@ -37,7 +37,7 @@ public class Inicio extends javax.swing.JFrame {
         InicioPanel();
     }
 
-    
+/** Oculta o visualiza partes de la aplicacion dependiendo de los permisos que tenga la cuenta    */
     public void permisos(String permiso){
        switch(permiso){
            case "usuario":
@@ -56,10 +56,11 @@ public class Inicio extends javax.swing.JFrame {
    }
    
    public void AltaUsuarioPanel(){
-//Visualizacion de paneles 
+/** Visualizacion de paneles */
         CrearPanel c1 = new CrearPanel(usuario);
         c1.setSize(991, 578);
         c1.setLocation(0, 0);
+        
         
         PInterfaz.removeAll();
         PInterfaz.add(c1, BorderLayout.CENTER);
@@ -68,7 +69,7 @@ public class Inicio extends javax.swing.JFrame {
     } 
     
 public void InicioPanel(){
-//Visualizacion de paneles     
+/** Visualizacion de paneles */     
         InicioPanel c1 = new InicioPanel();
         c1.setSize(991, 578);
         c1.setLocation(0, 0);
@@ -79,8 +80,10 @@ public void InicioPanel(){
         
     }
 
+/** Visualizacion de paneles */  
 public void ConsultasPanel(){
-//Visualizacion de paneles     
+    
+    
         ConsultasPanel c1 = new ConsultasPanel();
         c1.setSize(991, 578);
         c1.setLocation(0, 0);
@@ -92,7 +95,7 @@ public void ConsultasPanel(){
     }
 
 public void AdministrarUsuarios(){
-//Visualizacion de paneles     
+/** Visualizacion de paneles */  
         AdministrarUsuarios c1 = new AdministrarUsuarios();
         c1.setSize(991, 578);
         c1.setLocation(0, 0);
@@ -105,7 +108,7 @@ public void AdministrarUsuarios(){
     }
 
    public void AdministradorPanel(){
-        //Visualizacion de paneles 
+/** Visualizacion de paneles*/ 
         AdministradorPanel c1 = new AdministradorPanel();
         c1.setSize(991, 578);
         c1.setLocation(0, 0);
@@ -116,7 +119,7 @@ public void AdministrarUsuarios(){
         PInterfaz.repaint();
     } 
    
-   
+ /** Cambia el color a blanco dependiendo de donde estes  */
    public void ColorSeleccionado(JButton jb){
        BInicioInicio.setForeground(Color.black);
        BInicioConsultas.setForeground(Color.black); 
@@ -324,77 +327,74 @@ public void AdministrarUsuarios(){
 
     private void BInicioConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInicioConsultasActionPerformed
        
-//LLamar a la clase          
+/** LLamar a la clase     */     
          ConsultasPanel();
         
         
     }//GEN-LAST:event_BInicioConsultasActionPerformed
 
     private void BInicioDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInicioDueñoActionPerformed
-        
-//LLamar a la clase          
-        //AQUI PONER QUE NO SE VEA SI NO TIENE PERMISO DE ADMINISTRADOR
-        AltaUsuarioPanel();
+/** LLamar a la clase     */              
+         AltaUsuarioPanel();
 
     }//GEN-LAST:event_BInicioDueñoActionPerformed
 
     private void BInicioInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInicioInicioActionPerformed
+<<<<<<< Updated upstream
 //LLamar a la clase     
         InicioPanel();
         
+=======
+/** LLamar a la clase     */         
+         InicioPanel();
+>>>>>>> Stashed changes
        
            
            
     }//GEN-LAST:event_BInicioInicioActionPerformed
 
     private void BInicioUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInicioUsuarioActionPerformed
-    
- //LLamar a la clase        
-        AdministrarUsuarios();
+/** LLamar a la clase     */      
+         AdministrarUsuarios();
         
     }//GEN-LAST:event_BInicioUsuarioActionPerformed
 
     private void BExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BExitActionPerformed
  
-//Salir del programa
-        System.exit(0);
+/** Salir del programa */
+         System.exit(0);
     }//GEN-LAST:event_BExitActionPerformed
 
     private void BInicioAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInicioAdministradorActionPerformed
   
-//LLamar a la clase          
-        AdministradorPanel();
+/**LLamar a la clase     */             
+         AdministradorPanel();
     }//GEN-LAST:event_BInicioAdministradorActionPerformed
 
     private void BInicioInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BInicioInicioMouseClicked
-        // TODO add your handling code here:
-      ColorSeleccionado(BInicioInicio);
-       
-        
+/**LLamar a la clase     */     
+         ColorSeleccionado(BInicioInicio);
     }//GEN-LAST:event_BInicioInicioMouseClicked
 
     private void BInicioConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BInicioConsultasMouseClicked
-        // TODO add your handling code here:
-        ColorSeleccionado(BInicioConsultas);
+/** LLamar a la clase     */     
+         ColorSeleccionado(BInicioConsultas);
       
     }//GEN-LAST:event_BInicioConsultasMouseClicked
 
     private void BInicioDueñoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BInicioDueñoMouseClicked
-        // TODO add your handling code here:
-        
-        ColorSeleccionado(BInicioDueño);
+/** LLamar a la clase     */     
+         ColorSeleccionado(BInicioDueño);
     }//GEN-LAST:event_BInicioDueñoMouseClicked
 
     private void BInicioAdministradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BInicioAdministradorMouseClicked
-        // TODO add your handling code here:
-        
-       ColorSeleccionado(BInicioAdministrador);
+/** LLamar a la clase     */     
+         ColorSeleccionado(BInicioAdministrador);
     }//GEN-LAST:event_BInicioAdministradorMouseClicked
 
     private void BInicioUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BInicioUsuarioMouseClicked
-        // TODO add your handling code here:
-        
-       ColorSeleccionado(BInicioUsuario);
+/** LLamar a la clase     */     
+         ColorSeleccionado(BInicioUsuario);
     }//GEN-LAST:event_BInicioUsuarioMouseClicked
 
     
