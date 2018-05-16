@@ -50,6 +50,7 @@ public class Master_ESport{
      */
     public static java.sql.Date crearFecha(String stringFecha){
         try {
+
             SimpleDateFormat format = new SimpleDateFormat("yy/MM/dd");
             Date parsed = format.parse(stringFecha);
             java.sql.Date sql = new java.sql.Date(parsed.getTime());
@@ -327,8 +328,6 @@ public class Master_ESport{
         try {
                                  
             ArrayList <Jugador> d = p_DB.listaPetiJugador();
-            
-            Equipo equipo = new Equipo();//necesito el equipo
             
             for(int x = 0; x < d.size(); x++){
                 
