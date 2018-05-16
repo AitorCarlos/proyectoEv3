@@ -157,7 +157,7 @@ public class RegistroPanel extends javax.swing.JPanel {
                 String passText = new String(txContrasena.getPassword());
                 Master_ESport.crearMiembro(txNickname.getText(), txNombre.getText(), txApellido.getText(), passText, permiso());
                 
-                showMessageDialog(this, "Miembro creado");
+                showMessageDialog(this, "Miembro creado con exito");
                 
                 txNickname.setText(null); txNombre.setText(null); txApellido.setText(null); txContrasena.setText(null);
             }

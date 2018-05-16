@@ -18,6 +18,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import static master_esport.Master_ESport.cargarParses;
 
 public class Inicio extends javax.swing.JFrame {
+    int xMouse,yMouse;
     
     private Usuario usuario;
 
@@ -146,6 +147,8 @@ public void AdministrarUsuarios(){
         BInicioInicio = new javax.swing.JButton();
         BExit = new javax.swing.JButton();
         BInicioAdministrador = new javax.swing.JButton();
+        FramDrag = new javax.swing.JPanel();
+        Bmin = new javax.swing.JButton();
         PInterfaz = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -162,7 +165,7 @@ public void AdministrarUsuarios(){
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        PanelInterfaz.setBackground(new java.awt.Color(102, 0, 102));
+        PanelInterfaz.setBackground(new java.awt.Color(153, 204, 255));
 
         BInicioUsuario.setBackground(new java.awt.Color(255, 255, 255));
         BInicioUsuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -262,45 +265,80 @@ public void AdministrarUsuarios(){
             }
         });
 
+        FramDrag.setBackground(new java.awt.Color(153, 204, 255));
+        FramDrag.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                FramDragMouseDragged(evt);
+            }
+        });
+        FramDrag.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                FramDragMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout FramDragLayout = new javax.swing.GroupLayout(FramDrag);
+        FramDrag.setLayout(FramDragLayout);
+        FramDragLayout.setHorizontalGroup(
+            FramDragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        FramDragLayout.setVerticalGroup(
+            FramDragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        Bmin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Bmin.setForeground(new java.awt.Color(102, 102, 102));
+        Bmin.setText("-");
+
         javax.swing.GroupLayout PanelInterfazLayout = new javax.swing.GroupLayout(PanelInterfaz);
         PanelInterfaz.setLayout(PanelInterfazLayout);
         PanelInterfazLayout.setHorizontalGroup(
             PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInterfazLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(BInicioInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(BInicioConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(BInicioDueño, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BInicioAdministrador)
-                .addGap(28, 28, 28)
-                .addComponent(BInicioUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
+                .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelInterfazLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(BInicioInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(BInicioConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57)
+                        .addComponent(BInicioDueño, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addComponent(BInicioAdministrador)
+                        .addGap(28, 28, 28)
+                        .addComponent(BInicioUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInterfazLayout.createSequentialGroup()
+                        .addComponent(FramDrag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Bmin)
+                        .addGap(2, 2, 2)))
                 .addComponent(BExit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         PanelInterfazLayout.setVerticalGroup(
             PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelInterfazLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BExit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Bmin, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(FramDrag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PanelInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BInicioDueño, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BInicioConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BInicioInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BInicioUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BInicioAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
-            .addGroup(PanelInterfazLayout.createSequentialGroup()
-                .addComponent(BExit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PInterfazLayout = new javax.swing.GroupLayout(PInterfaz);
         PInterfaz.setLayout(PInterfazLayout);
         PInterfazLayout.setHorizontalGroup(
             PInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 991, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         PInterfazLayout.setVerticalGroup(
             PInterfazLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -340,14 +378,14 @@ public void AdministrarUsuarios(){
     }//GEN-LAST:event_BInicioDueñoActionPerformed
 
     private void BInicioInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInicioInicioActionPerformed
-<<<<<<< Updated upstream
+
 //LLamar a la clase     
         InicioPanel();
         
-=======
+
 /** LLamar a la clase     */         
          InicioPanel();
->>>>>>> Stashed changes
+
        
            
            
@@ -396,6 +434,20 @@ public void AdministrarUsuarios(){
 /** LLamar a la clase     */     
          ColorSeleccionado(BInicioUsuario);
     }//GEN-LAST:event_BInicioUsuarioMouseClicked
+
+    private void FramDragMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FramDragMouseDragged
+        // TODO add your handling code here:
+
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse,y - yMouse);
+    }//GEN-LAST:event_FramDragMouseDragged
+
+    private void FramDragMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FramDragMousePressed
+        // TODO add your handling code here:
+        xMouse =evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_FramDragMousePressed
 
     
     
@@ -447,6 +499,8 @@ public void AdministrarUsuarios(){
     private javax.swing.JButton BInicioDueño;
     private javax.swing.JButton BInicioInicio;
     private javax.swing.JButton BInicioUsuario;
+    private javax.swing.JButton Bmin;
+    private javax.swing.JPanel FramDrag;
     private javax.swing.JPanel PInterfaz;
     private javax.swing.JPanel PanelInterfaz;
     private javax.swing.JPanel jPanel1;
