@@ -378,15 +378,6 @@ public void AdministrarUsuarios(){
     }//GEN-LAST:event_BInicioDueñoActionPerformed
 
     private void BInicioInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInicioInicioActionPerformed
-
-//LLamar a la clase     
-        InicioPanel();
-        
-
-/** LLamar a la clase     */         
-         InicioPanel();
-
-       
            
            
     }//GEN-LAST:event_BInicioInicioActionPerformed

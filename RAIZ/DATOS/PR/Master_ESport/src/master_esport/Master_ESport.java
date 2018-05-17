@@ -44,8 +44,13 @@ public class Master_ESport{
         }        
     }
     
+    /**
+     * Esta función nos permite transformar una cadena de texto string en una fecha date
+     * y dicha fecha date en una fecha sql
+     */
     public static java.sql.Date crearFecha(String stringFecha){
         try {
+
             SimpleDateFormat format = new SimpleDateFormat("yy/MM/dd");
             Date parsed = format.parse(stringFecha);
             java.sql.Date sql = new java.sql.Date(parsed.getTime());
@@ -55,7 +60,9 @@ public class Master_ESport{
         }
         return null;
     }
-    
+    /**
+     * Esta función nos permite cambiar el formato de una fecha
+     */
     public static String cambiarFormato(String fecha){
             fecha = fecha.replace("-", "/");
             return fecha;
@@ -108,7 +115,10 @@ public class Master_ESport{
     }
     }
     
-    //Crear miembro alias usuario
+    /**
+     * Esta función nos permite recoger los datos de un miembro(usuario)
+     * y pasarlos a la clase MiembroDB para poder insertar dicho miembro
+     */
     public static void crearMiembro(String nickname, String nombre, String apellido, String contrasenna, String permiso) throws Exception{
     
         Miembro m1 = new Miembro(nickname, nombre, apellido, contrasenna, permiso);
@@ -117,7 +127,10 @@ public class Master_ESport{
 
     }
 
-        //Crear peticion dueño
+    /**
+     * Esta función nos permite recoger los datos de una peticion tipo dueño
+     * y pasarlos a la clase PeticionDB para poder realizar dicha peticion
+     */
     public static void peticionDuenno(String nickname, String nombre, String apellido, String contrasena, String permiso, String tipo) throws Exception{
     
         p_DB = new PeticionDB();
@@ -132,24 +145,38 @@ public class Master_ESport{
         
         p_DB.peticionDuenno(d2, tipo);
     }
-    //Ver peticion dueño
- public static ArrayList verPeticionDuenno() throws Exception{
+    
+    /**
+     * Esta función nos permite recoger todas las peticiones de tipo dueño que tengamos
+     */
+    public static ArrayList verPeticionDuenno() throws Exception{
     
         p_DB = new PeticionDB();
         
         return p_DB.listaPetiDuenno();
     }
-    //Ver que tipo de peticion se ha realizado
+    
+    /**
+     * Esta función nos permite ver una peticion de tipo dueño
+     */
     public static String verTipoDuenno(){
         
         return PeticionDB.tipoDuenno;
     }
-    //Borrar una peticion por su nickname
+    
+    /**
+     * Esta función nos permite recoger el nickname de una peticion
+     * de tipo dueño o jugador y borrar dicha peticion
+     */
     public static void borrarPeticion(String nickname) throws Exception{
         
         p_DB.borrarPeticionDJ(nickname);
     }
-    //Ver todas las peticiones de dueños que hay
+    
+    /**
+     * Esta función nos permite ver todas las peticiones de tipo dueño
+     * y meterlas en una lista con su tipo de peticion, su nombre y que permiso tiene
+     */
     public static void verPeticionDuennos() throws Exception{
     
         p_DB = new PeticionDB();
@@ -169,7 +196,11 @@ public class Master_ESport{
         catch(Exception e){}
 
     }
-    //Aceptar peticion de dueño y añadirlo como dueño en la base de datos
+    
+    /**
+     * Esta función nos permite recoger una peticion de tipo dueño
+     * y añadir dicho dueño a la base de datos
+     */
     public static void anadirDuenno(Duenno duenno) throws Exception{
     
         d_DB = new DuennoDB();
@@ -177,31 +208,48 @@ public class Master_ESport{
         d_DB.registrarDuenno(duenno);
     }
     
-    //Crear peticion equipo
+    /**
+     * Esta función nos permite recoger los datos de una peticion tipo equipo con su dueño
+     * y pasarlos a la clase PeticionDB para poder realizar dicha peticion
+     */
     public static void peticionEquipo(Equipo equipo, Duenno duenno, String tipo) throws Exception{
     
         p_DB = new PeticionDB();
         
         p_DB.peticionEquipo(equipo, duenno, tipo);
     }
-    //Ver peticion equipo
+    
+    /**
+     * Esta función nos permite recoger todas las peticiones de tipo equipo que tengamos
+     */
     public static ArrayList verPeticionEquipo() throws Exception{
     
         p_DB = new PeticionDB();
         
         return p_DB.listaPetiEquipo();
     }
-    //Ver que tipo de peticion se ha realizado
+    
+    /**
+     * Esta función nos permite ver una peticion de tipo equipo
+     */
     public static String verTipoEquipo(){
         
         return PeticionDB.tipoEquipo;
     }
-    //Borrar una peticion por nombre
+    
+    /**
+     * Esta función nos permite recoger el nombre de una peticion
+     * de tipo equipo y borrar dicha peticion
+     */
     public static void borrarPeticionN(String nombre) throws Exception{
     
         p_DB.borrarPeticionE(nombre);
     }
-    //Ver todas las peticiones de equipo que hay
+    
+    /**
+     * Esta función nos permite ver todas las peticiones de tipo equipo
+     * y meterlas en una lista con su tipo de peticion, su nombre y que su dueño
+     */
     public static void verPeticionEquipos() throws Exception{
         
         p_DB = new PeticionDB();
@@ -219,7 +267,11 @@ public class Master_ESport{
         catch(Exception e){}
                
     }
-    //Aceptar peticion de equipo y añadirlo como equipo en la base de datos
+    
+    /**
+     * Esta función nos permite recoger una peticion de tipo equipo con su dueño
+     * y añadir dicho equipo a la base de datos
+     */
     public static void anadirEquipo(Equipo equipo) throws Exception{
     
         e_DB = new EquipoDB();
@@ -229,7 +281,10 @@ public class Master_ESport{
         e_DB.registrarEquipo(equipo, d1);
     }
     
-    //Crear peticion jugador
+    /**
+     * Esta función nos permite recoger los datos de una peticion tipo jugador con su equipo
+     * y pasarlos a la clase PeticionDB para poder realizar dicha peticion
+     */
     public static void peticionJugador(Jugador jugador, Equipo equipo, String tipo) throws Exception{
     
         p_DB = new PeticionDB();
@@ -243,19 +298,29 @@ public class Master_ESport{
             p_DB.peticionJugadorEquipo(jugador, equipo, tipo);
         }
     }
-    //Ver peticion equipo
+    
+    /**
+     * Esta función nos permite recoger todas las peticiones de tipo jugador que tengamos
+     */
     public static ArrayList verPeticionJugador() throws Exception{
     
         p_DB = new PeticionDB();
         
         return p_DB.listaPetiJugador();
     }
-    //Ver que tipo de peticion se ha realizado
+    
+    /**
+     * Esta función nos permite ver una peticion de tipo jugador
+     */
     public static String verTipoJugador(){
         
         return PeticionDB.tipoJugador;
     }
-    //Ver todas las peticiones de jugadores que hay
+    
+    /**
+     * Esta función nos permite ver todas las peticiones de tipo jugador
+     * y meterlas en una lista con su tipo de peticion y su nombre
+     */
     public static void verPeticionJugadores() throws Exception{
         
         p_DB = new PeticionDB();
@@ -263,8 +328,6 @@ public class Master_ESport{
         try {
                                  
             ArrayList <Jugador> d = p_DB.listaPetiJugador();
-            
-            Equipo equipo = new Equipo();//necesito el equipo
             
             for(int x = 0; x < d.size(); x++){
                 
@@ -274,7 +337,11 @@ public class Master_ESport{
         }
         catch(Exception e){}
     }
-    //Aceptar peticion de jugador y añadirlo a la base de datos
+    
+    /**
+     * Esta función nos permite recoger una peticion de tipo jugador
+     * y añadir dicho jugador a la base de datos
+     */
     public static void anadirJugador(Jugador jugador) throws Exception{
         
         if(jugador.getEquipo()==null){

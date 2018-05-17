@@ -12,6 +12,15 @@ import javax.swing.JList;
 import static javax.swing.JOptionPane.showMessageDialog;
 import master_esport.Master_ESport;
 
+/**
+ *
+ * @author Eqdaw03
+ */
+
+/**
+ * Ventana peticiones
+ * Esta clase nos sirve para hacer las distintas peticiones que hay.
+ */
 
 public class Peticiones extends javax.swing.JPanel {
     
@@ -20,6 +29,9 @@ public class Peticiones extends javax.swing.JPanel {
         listaPeticiones();
     }
     
+    /**
+     * Esta función nos permite cargar los datos de las peticiones y meterlos en un panel para poder verlas
+     */
     public void listaPeticiones(){
     
         try {
@@ -36,6 +48,10 @@ public class Peticiones extends javax.swing.JPanel {
         }
     }
     
+    /**
+     * Esta función nos permite aceptar una peticion de dueño.
+     * Eliminar la peticion de la tabla de peticiones y la insertar en la tabla de dueño
+     */
     public void aceptarPeticionDuenno(int r){
     
         try {
@@ -55,6 +71,10 @@ public class Peticiones extends javax.swing.JPanel {
         }
     }
     
+    /**
+     * Esta función nos permite denegar una peticion de dueño.
+     * Eliminar la peticion de la tabla de peticiones
+     */
     public void denegarPeticionDuenno(int r){
         
         try {
@@ -74,6 +94,10 @@ public class Peticiones extends javax.swing.JPanel {
 
     }
     
+    /**
+     * Esta función nos permite aceptar una peticion de equipo.
+     * Eliminar la peticion de la tabla de peticiones y la insertar en la tabla de equipo
+     */
     public void aceptarPeticionEquipo(int r){
         
         try {
@@ -94,6 +118,10 @@ public class Peticiones extends javax.swing.JPanel {
         }
     }
     
+    /**
+     * Esta función nos permite aceptar una denegar de equipo.
+     * Eliminar la peticion de la tabla de peticiones
+     */
     public void denegarPeticionEquipo(int r){
     
         try {
@@ -113,6 +141,10 @@ public class Peticiones extends javax.swing.JPanel {
 
     }
     
+    /**
+     * Esta función nos permite aceptar una peticion de jugador.
+     * Eliminar la peticion de la tabla de peticiones y la insertar en la tabla de jugador
+     */
     public void aceptarPeticionJugador(int r){
         
         try {
@@ -133,6 +165,10 @@ public class Peticiones extends javax.swing.JPanel {
         }
     }
     
+    /**
+     * Esta función nos permite aceptar una denegar de jugador.
+     * Eliminar la peticion de la tabla de peticiones
+     */
     public void denegarPeticionJugador(int r){
     
         try {
@@ -219,6 +255,9 @@ public class Peticiones extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
+        /**
+         * Con este botón aceptamos una peticion seleccionada
+         */
         if(jpl.getSelectedIndex()==-1){
 
             showMessageDialog(this, "Seleccione una peticion por favor");
@@ -242,6 +281,9 @@ public class Peticiones extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        
+        /**
+         * Con este botón denegamos una peticion seleccionada
+         */
         if(jpl.getSelectedIndex()==-1){
 
             showMessageDialog(this, "Seleccione una peticion por favor");
