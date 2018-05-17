@@ -340,14 +340,9 @@ public void AdministrarUsuarios(){
     }//GEN-LAST:event_BInicioDueñoActionPerformed
 
     private void BInicioInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInicioInicioActionPerformed
-<<<<<<< Updated upstream
-//LLamar a la clase     
-        InicioPanel();
-        
-=======
+
 /** LLamar a la clase     */         
          InicioPanel();
->>>>>>> Stashed changes
        
            
            

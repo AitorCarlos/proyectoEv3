@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><UltimaJornada/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><UltimaJornada><Jornada><datosJornada><codigo>1</codigo><fechaInicio>2018-05-15</fechaInicio><fechaFinal>2018-05-16</fechaFinal></datosJornada><partidos><partido jugado="true"><codigoP>1</codigoP><fechaP>2018-05-15</fechaP><nombreL>Giants</nombreL><nombreV>Fenix</nombreV><resultadoL>1</resultadoL><resultadoV>2</resultadoV></partido></partidos></Jornada></UltimaJornada>
